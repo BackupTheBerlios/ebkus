@@ -66,7 +66,7 @@ class fsergebnis(Request.Request):
     if self.form.has_key('stz'):
       stz = self.form.get('stz')
     else:
-      self.last_error_message = "Keine Men&uuml;auswahl erhalten"
+      self.last_error_message = "Keine Stelle markiert"
       return self.EBKuSError(REQUEST, RESPONSE)
 
     if type(stz) is type(''):
@@ -873,7 +873,7 @@ class formabfr6(Request.Request):
     if self.form.has_key('file'):
       file = self.form['file']
     else:
-      self.last_error_message = "Keine Wahl fuer Kategorie(n) erhalten"
+      self.last_error_message = "Keine Wahl für die Kategorie(n) erhalten"
       return self.EBKuSError(REQUEST, RESPONSE)
     
     tabellen1 = TabelleList(where = "klasse = 'Fachstatistik'")
@@ -1222,7 +1222,7 @@ class abfr6b(Request.Request):
       if type(codeid) is type(''):
         codeid = [codeid]
     else:
-      self.last_error_message = "Keine Datensätze gefunden."
+      self.last_error_message = "Keine Items erhalten."
       return self.EBKuSError(REQUEST, RESPONSE)      
 
     if stz == -1:
