@@ -2,6 +2,7 @@ Aktuell:
 
 - Version 3.2 fertiggestellt, keine aktuellen Aufgaben :-)
 - create_cd.py findet das Paket MySQL-python-1.0.0.tar.gz nicht.
+Done: MySQL-python-1.0.0.tar.gz in ebkus-3.2-dist.zip ersetzt.
 
 Perspektivisch:
 
