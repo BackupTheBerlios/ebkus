@@ -63,8 +63,8 @@ require valid-user
 
 #########Ende der EBKuS Konfiguration#######################
 
-
 Die Url für die Klientenverwaltung "EBKuS" lautet dann:
+
 
 http://ihr_server_name/efb/ebcgi.py/menu
 

@@ -2,10 +2,10 @@
 
 # Setup fuer EBKuS-Datenbankanwendung
 # Ein vernünftiges Batch-Script sollte noch 
-# Windows-Anwendern geschrieben werden.
+# von Windows-Anwendern erstellt werden.
 
 # PATH=$PATH;C:\Programme\python21;
-# PYTHONPATH=C:\Programme\python21;C:\Programme\ebkus
+# PYTHONPATH=$PYTHONPATH;C:\Programme\python21;C:\Programme\ebkus
 
 python genschema.py 
 

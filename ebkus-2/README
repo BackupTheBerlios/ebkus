@@ -81,7 +81,7 @@ Betriebssystem (Windows oder Unix) führt natürlich zu einem etwas
 erhöhten Installationaufwand, weil zunächst die von EBKuS benötigte
 Server-Software: MySQL, Apache, Python zu installieren
 sind. Anpassungen an andere Datenbanken sollten ohne Änderung der im
-Programm verwendeten Datenbanabfragen prinzipiell möglich sein.
+Programm verwendeten Datenbankabfragen prinzipiell möglich sein.
 
 
 1. Installation

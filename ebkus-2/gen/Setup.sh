@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#Setup fuer EBKuS-Datenbankanwendung
+# Setup fuer EBKuS-Datenbankanwendung
 #
 #
 #
