@@ -495,6 +495,12 @@ class suchetxt(Request.Request):
 
   def processForm(self, REQUEST, RESPONSE):
     import os
+    if sys.platform == "win32":
+      import win32pipe
+      popen = win32pipe.popen
+    else:
+      popen = os.popen
+
     mitarbeiterliste = self.getMitarbeiterliste()
     user = self.user
     if self.form.has_key('expr'):
@@ -517,7 +523,7 @@ class suchetxt(Request.Request):
         gruppe_path = get_gruppe_path(gruppe['id'])
         cwd = os.getcwd()
         os.chdir('%s' % gruppe_path)
-        fd = os.popen('agrep -n -i %s *.txt ' % expr)
+        fd = popen('agrep -n -i %s *.txt ' % expr)
         ergebnis = fd.readlines()
         fd.close()
         os.chdir(cwd)
@@ -542,7 +548,7 @@ class suchetxt(Request.Request):
         akte_path = get_akte_path(akte['id'])
         cwd = os.getcwd()
         os.chdir('%s' % akte_path)
-        fd = os.popen('agrep -n -i %s *.txt /dev/null' % expr)
+        fd = popen('agrep -n -i %s *.txt /dev/null' % expr)
         ergebnis = fd.readlines()
         fd.close()
         os.chdir(cwd)

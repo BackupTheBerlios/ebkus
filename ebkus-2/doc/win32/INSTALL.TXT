@@ -89,6 +89,9 @@ A. SERVER
    Python, das Modul MySQLdb und Apache korrekt installiert und im
    Pfad enthalten sind (vgl. Punkt 7, Umgebungsvariable.)
 
+   Spezielle Tipps für Python auf Windows-Systemen enthält die FAQ:
+   http://www.python.org/doc/FAQ.html.
+   
    Für die Suche in Texten wird das Programm agrep (agrep.exe)
    verwendet. Es sollte im Systemsuchpfad installiert sein. Es kann
    jederzeit nachträglich installiert werden.

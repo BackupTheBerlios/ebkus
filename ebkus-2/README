@@ -3,10 +3,10 @@ EBKuS. Erziehungsberatung - Klientenverwaltung und Statistik
 ============================================================
 
 Die Installationsschritte sind in der Datei INSTALL.TXT im Verzeichnis
-eb/doc für Unix bzw. im Verzeichnis eb/doc/win32 für Windows
+doc für Unix bzw. im Verzeichnis doc/win32 für Windows
 beschrieben. Darin finden Sie auch die ausführliche
 Anwendungsbeschreibung von EBKuS, im PDF-, Postscript- oder
-HTML-Format (Dateien: ebkus.pdf, ebkus.ps, eb/doc/ebkus/index.html).
+HTML-Format (Dateien: ebkus.pdf, ebkus.ps, doc/ebkus/index.html).
 
 Das Programm EBKuS stellt für Erziehungsberatungsstellen eine
 elektronische Klientenverwaltung, Aktendokumentation,
