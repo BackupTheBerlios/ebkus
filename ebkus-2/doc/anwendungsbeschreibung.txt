@@ -455,7 +455,7 @@ Man kann in der Datenbank im Administrationsmenü mehrere
 Dienststellen anlegen. Die Dienststellen sollten nach der
 Installation vom Administrator bzw. dem Anwendungsbetreuer im
 Administrationsmenü eingetragen werden. Die MitarbeiterInnen sind
-immer einer Diensstelle fest zugeordnet. Arbeitet eine
+immer einer Dienststelle fest zugeordnet. Arbeitet eine
 Mitarbeiterin an mehreren Stellen, sollte bei jeder Dienststelle
 ein Benutzer für die Mitarbeiterin eingetragen werden.
 
