@@ -1,19 +1,13 @@
 Bezug des Quellcodes aus dem CVS-Archiv
 ---------------------------------------
 
-Der Quellcode des Projektes EBKuS wird mit CVS verwaltet und ist auf
-der folgenden Url zu finden:
-
+Der Quellcode des Projektes EBKuS wird mit CVS verwaltet und ist 
+zu finden unter:
 http://developer/berlios.de/projects/ebkus
 
 Die Sourcen von EBKuS-2 können von registrierten Entwicklern mit dem
 Befehl ausgecheckt werden:
-
 cvs -ddevelopername@cvs.berlios.de:/cvsroot/ebkus co ebkus-2
-
-Anonyme Nutzer verwenden den Befehl:
-
-
 
 Hinweise für die Installation des Sourcen aus dem CVS-Archiv:
 -------------------------------------------------------------
