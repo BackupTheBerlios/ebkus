@@ -17,7 +17,7 @@ CVS-Repository setzt voraus:
 
 - Python 1.52 u.  höher
 - Apache 1.3 u. höher
-- Mysql 2.22 u. höher
+- Mysql 3.22.19 u. höher
 - Mysqldb (Mysql-Python Modul)
 - Reportlab (Sollte ins Verzeichnis ebkus/reportlab installiert werden!).
 
