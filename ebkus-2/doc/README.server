@@ -1,0 +1,46 @@
+Einrichten als Bobo-basierten Server
+===================================
+
+Gilt für Linux (für Windows siehe INSTALL.TXT im Verzeichnis win32.):
+
+Link auf ebcgi.py
+------------------
+
+In der cgi-bin directory des Systems einen symbolischen link
+auf 'ebcgi.py' erzeugen, also z.B.:
+
+  cd /usr/local/httpd/cgi-bin
+  ln -s /home/ebkus/public_html/ebkus/ebcgi.py ebs
+
+Der Name des links wird dann zum Bestandteil der URLs, mit denen
+die Anwendung angesprochen wird, also z.B.:
+
+  http://localhost/cgi-bin/ebs/menu
+
+Es kann ein beliebiger Name gewählt werden, der nicht mit dem
+Namen des Moduls, das von Bobo 'gepublisht' wird, übereinstimmen
+muß.
+
+Der HTTP Server muß natürlich so konfiguriert werden, daß dieses
+Link ausgeführt werden darf. (siehe config_apache.txt).
+
+Server starten
+--------------
+
+In der home directory der Anwendung 'start.py' ausführen. Der
+Server meldet sich dann mit einigen Infos und schließlich mit:
+
+ Listening (host: 127.0.0.1 port: 50007)
+
+Dann kann's los gehen.
+
+Er kann mit C-c abgeschossen werden, was regelmäßig dann
+notwendig ist, wenn irgendetwas in der Anwendung verändert wurde.
+
+Falls in der Anwendung ein Fehler aufgetreten ist, druckt der
+Server zusätzliche Infos auf die Konsole (environment, stdin bei
+POST Methode, etc.), sonst lediglich
+
+  Publisher OK, 140.56 ms
+
+wobei die Zeit die in der Anwendung verbrachten Realzeit darstellt.

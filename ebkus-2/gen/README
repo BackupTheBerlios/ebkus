@@ -1,0 +1,21 @@
+
+Migration
+=========
+
+Für die Migration - das Anlegen der Tabellen, das Generieren der
+Anwendungsschnittstelle, das Importieren der Daten in die Tabelle -
+sind folgende Schritte notwendig:
+
+1. Erzeugung des neuen Schemas (genschema.py als Skript
+ausführen)
+2. Generierung der Anwendungsschnittstelle (genebapi.py als Skript
+ausführen)
+3. Die Daten aus migrdata.py in die Tabellen importieren
+(migrate.py als Skript ausführen)
+
+Die drei Schritte könne beliebig wiederholt werden. Je nach dem,
+welche Datenquellen verändert wurden, genügt es, lediglich
+Schritte 2-3 oder nur Schritt 3 zu wiederholen.
+
+Wenn jedes Skript ohne Exceptions gelaufen ist, kann man ziemlich
+zuversichtlich sein, daß alles geklappt hat.

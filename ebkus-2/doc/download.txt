@@ -1,0 +1,91 @@
+Download-Hinweise:
+
+1. EBKuS:
+=========
+
+Über die jeweils aktuellste Fassung von EBKuS und Downloadmöglichkeit
+informiert:
+http://pantau.in-berlin.de
+
+Download mit ftp: pantau.in-berlin.de   (im Verzeichnis: pub/ebkus)
+
+Weitere Infos: juerg@pantau.in-berlin.de
+
+Auf den Downloadseiten der untenstehenden Adressen sind die
+Programmpakete entsprechend dem gewünschten Betriebssystem
+aufgelistet. Die aktuellsten Versionen finden sie jeweils hier:
+
+2. PYTHON
+=========
+
+http://www.python.org
+
+
+3. Datenbank MySQL
+==================
+
+http://www.mysql.com
+
+
+3.1 Python-Datenbankmodul für MySQL (MySQLdb.py)
+================================================
+
+Linux:
+http://dustman.net/andy/python/MySQLdb/
+Windows:
+http://home.t-online.de/home/err666/
+
+4. HTTPD-Apache
+===============
+
+http:/www.apache.org
+
+
+5. Acrobat Reader
+=================
+
+http://www.adobe.com/products/acrobat/readermain.html
+
+Für Linux:
+
+http://rpmfind.net/linux/RPM/contrib/libc6/i386/acroread-4.05-3.i386.html
+
+
+6. REPORT-LAB
+==============
+
+Das PDF-Package reportlab.tgz bzw. reportlab.zip muss im Verzeichnis
+/eb/reportlab vorhanden sein, sollen Aktendokumente im PDF-Format
+aufbewahrt und zum Lesen ausgegeben werden.
+
+Es ist im Internet kostenlos zu beziehen unter:
+
+http://www.reportlab.com/download.html
+
+Das Archiv wird in das Verzeichnis /eb/reportlab ausgepackt.
+
+
+7. ICD-10 - DIMDI
+==================
+
+Der im Menü aufgeführte ICD-10-Katalog von DIMDI wird in der
+HTML-Fassung im Verzeichnis doc/icd-10 ausgepackt. Löschen Sie
+anschliessend die jetzige Datei index.html und legen Sie einen
+symbolischen Link index.html auf die Startdatei des ICD-10-Kataloges
+an.  
+Befehl: ln -s start.htm index.html
+
+Downloadresse:
+
+http://www.dimdi.de/germ/klassi/fr-klassi.htm
+
+
+
+-----------
+Jürg Huber
+juerg@pantau.in-berlin.de
+http://pantau.in-berlin.de
+
+
+
+

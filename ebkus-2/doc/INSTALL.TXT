@@ -1,0 +1,320 @@
+EBKuS. Erziehungsberatung - Klientenverwaltung und Statistik
+============================================================
+
+Wichtige Installationshinweise (Unix)
+======================================
+
+Für Windows befinden sich die Installationshinweise im
+Unterverzeichnis eb/doc/win32 in der Datei INSTALL.TXT
+
+Benutzer des EBKuS-CVS-Archivs auf www.berlios.de müssen zusätzlich
+zum Quellcode das Python-Package reportlab (PDF-Bibliothek) im
+Installations-Verzeichnis ebkus installieren. Die Anwendung setzt
+voraus, dass es im Verzeichnis ebkus/reportlab installiert ist.
+
+A. SERVER (Unix)
+================
+
+
+Als User root:
+
+   Neuer Benutzer ebkus:
+
+1. 1 neuen User ebkus mit Homeverzeichnis anlegen.
+
+
+   Neue Datenbank "eb" in MySQL:
+
+2. 1 neue Datenbank z.Bsp. "eb" (Name ist freiwählbar) in MySQL
+   anlegen mit Zugangsrechten! für den User ebkus. (Befehl: "mysqladmin
+   create eb".). Vgl. config_mysql.txt.
+
+
+   Apache: HTTP-Server für EBKuS konfigurieren (Datei httpd.conf):
+   (Für Apache höher 2.0 liegen uns noch keine Erfahrungen vor!)
+
+3. 1 User-Directory, z.Bsp. public_html für ebkus im HTTP-Server
+   konfigurieren, sofern nicht schon vorhanden. Die Berechtigung
+   sollte zudem über sog. Directory-Direktiven generell auf die PC's
+   der EBKuS-Anwender begrenzt werden (IP-Adressen-Kontrolle für alle
+   Requestanfragen auf dieses Directory). (Siehe Beispiel in
+   config_apache.txt im doc Verzeichnis). Dadurch nimmt der WWW-Server
+   dieses Verzeichnis in seinen Dokumentenpfad auf und erlaubt nur
+   den eingetragenen IP-Nummern den Zugriff.
+
+4. 1 ScriptAlias Verzeichnis anlegen. 1 symbolischen Link mit Namen ebs
+   in dem neuen cgi-bin Verzeichnis des HTTP-Servers auf die Datei
+   ebcgi.py von EBKuS (befindet sich im Verzeichnis ebkus)
+   erzeugen.  HTTP-Userauthorisierung für das angelegte cgi-bin
+   Verzeichnis einrichten (siehe die Beispiele in config_apache.txt im
+   ebkus/doc Verzeichnis). Ohne Userauthorisierung (Passwortabfrage) durch
+   den HTTP-Server kann EBKuS nicht betrieben werden.
+   Die Icons aus dem Verzeichnis icons ins Icons-Verzeichnis des
+   Apache kopieren oder ein entsprechender Alias-Eintrag in der
+   http.conf anlegen.
+
+5. HTTP-Userkennungen mit Passwörtern für jeden Mitarbeiter der
+   Stellen (Anwender von EBKuS) einrichten. 1 neue Userkennung sollte
+   "Admin" heissen (ansonsten muss im Installationsskript von EBKuS in
+   der Datei migrdata.py *vor* der Installation die Userkennung für
+   den Administrator von EBKuS entsprechend abgeändert werden)!
+
+   Kommentar: Die Apache-Konfiguration kann je nach Kenntnissen,
+   Bedarf und Möglichkeiten ergänzt werden  (wie virtueller Server,
+   SSL). Es ist hier nur das Notwendige für die Installation knapp 
+   aufgezählt.
+
+
+   Python und Datenbank-Modul MySQLdb:
+   
+6. Python installieren, falls ausnahmsweise nicht vorhanden.
+   (u.U. symbolischer Link /usr/local/bin/python auf /usr/bin/python 
+   anlegen).
+   MySQLdb.py, das MySQL-DB-Python-Module installieren, d.h. im
+   Source Verzeichnis von ebkus/mysql-python-0.3.5-linux folgendes am 
+   Prompt ausführen. 
+   > python setup.py build
+   > python setup.py install
+   (Hinweis: Evtl. müssen die Pfade sowie das Flag für Threads 
+   in setup.py entsprechend der vorhandenen Python- und 
+   MySQLinstallation angepasst werden.)
+    
+   Die Installation dieses Modul setzt Python 1.52 und höher sowie
+   eine MySQL-Installation ab Version 3.22.19 (vgl. genauer dazu das
+   README im Paket MySQLdb) voraus. Alternative: Das beiliegende
+   MySQLmodule-1.4 (im Verzeichnis packets)
+
+   MySQLdb ist ein Python-Modul, das von Python und EBKuS importiert
+   wird und die Verbindung zur MySQL-Datenbank herstellt. Für andere
+   SQL-Datenbanken als MySQL wie z.Bsp. Oracle, Informix etc. müssten
+   entsprechend andere passende Datenbankmodule von Python installiert
+   und die Adapter-Datei dbadapt.py in EBKuS angepasst werden.  Sollte
+   die Installation des beiliegenden Moduls fehlschlagen, finden sie
+   auch Binary-Pakete und RPM Pakte auf der Homepage des Autors:
+   http://dustman.net
+
+   Prüfen Sie nach der Installation die Lauffähigkeit aller Programme,
+   indem Sie die folgenden Executables aufrufen:
+   mysqld         (den MySQL-Datenbankserver)
+   python	  (den Pythoninterpreter)
+   httpd	  (den WWW-Server)
+
+   Machen sie evtl. getrennte kleine Testeingaben für diese Programme,
+   z.Bsp. indem sie
+
+   - mysqlshow aufrufen (zeigt alle vorhandenen Datenbanken in
+     MySQL)
+   - python aufrufen (den Python Interpreter) und 
+     an der Prompt-Eingabeaufforderung von Python im Terminal-Fenster:
+     > import MySQLdb
+     eingeben, um zu testen, ob das Modul MySQLdb importiert wird.
+     > dir()
+     dann:
+     > db = MySQLdb.connect(host = 'localhost', db = 'eb')
+     > print db
+     Wenn sie <MySQLdb.Connection instance at ... > erhalten, ist das
+     Modul in der Lage, eine Verbindung zum MySQL-Server herzustellen.
+   - am Internet-Browser eine lokale Url über den WWW-Server aufrufen:
+     http://localhost/
+     (Sie sollten die Dokumentation zum Apache erhalten.
+     
+   oder auch die Testprogramme laufen lassen, welche z.Bsp. bei MySQL
+   dabei sind. Voraussetzung für EBKuS ist, dass die Programme MySQL,
+   Python, das Modul MySQLdb und Apache korrekt installiert sind und im
+   Pfad enthalten sind (vgl. Punkt 7, Umgebungsvariable.)
+
+   Für die Suche in Texten wird das Programm agrep (bzw. agrep.exe)
+   verwendet. Es sollte im Systemsuchpfad installiert sein.
+
+
+   EBKuS: Boot-Start-Script für Linux:
+
+7. Bootscript für EBKuS einrichten, damit beim Neustart des Systems
+   der EBKuS-Server automatisch gestartet wird.
+   (vgl. Beispiel in config_bootscript.txt im doc-Verzeichnis
+   bzw. die Datei ebkus im Verzeichnis ebkus/stuff)
+
+
+Als User ebkus:
+
+1. Login als User "ebkus".
+
+2. HTML-User-Verzeichnis public_html anlegen und das Archiv
+   ebkus-2-0.tar.gz darin auspacken. 
+   (Befehl: tar -xzf ebkus-2-0.tar.gz).
+
+
+   Umgebungsvariablen setzen:
+
+3. Umgebungsvariable in der Shell für Python eintragen, so dass das
+   Directory, in dem EBKuS ausgepackt wurde, im Pfad von Python
+   enthalten ist, also in die Datei .bashrc im Homeverzeichnis mit
+   dem Texteditor z.B. folgendes eintragen:
+
+   PYTHONPATH=$HOME/public_html/ebkus:/usr/lib/python:
+   export PYTHONPATH
+
+
+4. In der Datei config.py im EBKuS-Distributionsverzeichnis ebkus die
+   Umgebungsvariablen entsprechend Ihrer Installation editieren.
+
+   # Hostname des Computers
+   HOST = 'ihr_pc_name.domain.de'       
+   DATABASE_NAME = 'eb'
+   # vollständiger Unix-Pfad fuer EBKuS
+   EBKUSHOME = '/home/ebkus/public_html/ebkus'   
+   # vollständiger URL-Pfad fuer EBKuS,
+   EBKUSROOT = "/~ebkus/ebkus/"  
+   # vollstaendiger CGI-BIN Pfad fuer EBKuS  (bzw. Pfad des SrciptAlias)
+   CGI_BIN_PATH = '/usr/local/httpd/efb'
+
+   Die anderen Umgebungsvariablen in config.py können Sie
+   für 1 Installation ohne Änderungen übernehmen.
+   Bei mehreren Installationen mit Datenaustausch dazwischen sollte die Anzahl
+   der Aktenverzeichnisse entsprechend erhöht werden.
+   
+
+   Setup.sh ausführen:
+
+5. ./Setup.sh im Verzeichnis ebkus/gen aufrufen.  Legt die Tabellen an
+   (vgl. schemadata.py), generiert das API für die Anwendung
+   (vgl. ebapigen.py), liest die mitgelieferten Daten in die Datenbank
+   ein (vgl. migrdata.py) und erstellt die benötigten
+   Daten-Verzeichnisse.  (Vorsicht: Es werden die bei früheren
+   Durchläufen von Setup.sh erzeugten Tabellen mit den darin
+   befindlichen Daten jeweils gelöscht, die Tabellen neu erzeugt und
+   die Daten aus der Datei migrdata.py frisch eingelesen !!!!!)
+
+   Alternativ: Rufen sie statt Setup.sh die folgenden Module in
+   dieser Reihenfolge im Verzeichnis ebkus/gen am Prompt auf:
+
+   python genschema.py	     # Generiert das Datenbankschema
+   python genebapi.py	     # Generiert das API (Anwendungsinterface)
+   python migrate.py	     # Liest die benötigten Datensätze ein.
+
+   Durch Vertauschenn der Kommentarzeichens # am Anfang dieser Zeilen
+   im Kopf dar Datei migrate.py kann ausgesucht werden, welche Liste
+   von Kategorien und Items bei der Installation in die Datenbank
+   eingelesen werden (alternativ!).
+
+   from migrdata_kreuzberg import *	     # Demo aus der EFB-Kreuzberg
+   # from migrdata_minimum import *	     # absolutes Minimum,
+					     # incl. Bundesstatistik
+     .
+   # from migrdata import *		     # Standard
+
+   Um eigene Itemlisten für die Installation zu erstellen, sollte man
+   unbedingt die Listen aus migrdata_minimum.py verwenden und diese
+   erweitern. Die dort eingetragenen Items- und Kategorienkürzel
+   (Code!) werden intern von EBKuS gebraucht (die Namensbezeichnungen
+   der Items und Kategorien hingegen sind änderbar).
+
+   Starten:
+
+6. EBKuS Server starten: an der Konsole oder in einem X-Terminal 
+   im Verzeichnis ebkus den EBKuS-Server mit:
+   
+   python start.py 
+
+   aufrufen; die Ausgaben des Servers werden auf die Konsole
+   geschrieben oder ebkus/stuff/ebkus_server.sh benutzen (der Server
+   läuft dann als Hintergrundprozess und schreibt ein Logprotokoll
+   nach /tmp/ebkus_log-time . (Die Datenbank MySQL, der WWW-Server
+   Apache und ebkus_server.sh sollten bei jedem Systemstart
+   automatisch als Hintergrundprozess gestartet werden, damit man nur
+   den Internetbrowser starten muss, um auf EBKuS zuzugreifen.)
+
+7. WWW-Browser aufrufen. Die konfigurierte Url (vgl. Punkt 4 bei root)
+   eingeben mit der Datei menu.py am Schlus, um das Hauptemenü der
+   Klientenverwaltung im Browser zu erhalten, also in unserem Beispiel:
+   Url: http://ihr-server-name/efb/ebs/menu
+
+   Anmeldung: Admin	(vgl. Punkt 5 bei root)
+   Passwort: ********	(vgl. Punkt 5 bei root)
+
+Finito!
+
+
+B. Workstations - Klienten-PC's
+===============================
+
+1. TCP-IP Verbindung zum Server einrichten, auf dem EBKuS installiert ist.
+
+2. WWW-Browser (Netscape oder Internet-Explorer) installieren und
+   obige Url als Bookmark (Favorit) markieren.
+
+3. Acrobat Reader installieren (siehe Infos in config_pdf.txt).
+
+
+C. Konfiguration von EBKuS nach erfolgreichem Start des EBKuS-Servers
+=====================================================================
+
+Die Url für EBKuS aufrufen und sich als Benutzer "Admin" im
+Internet-Explorer oder Netscape anmelden:
+
+1. Eintragen der Stellennamen.
+   
+   Im Menü "Administration" in der Rubrik "Kategorien" den Link "Alle"
+   anklicken; in die Tabelle "Dienststelle" gehen und in der Spalte
+   Code den Link -A- bei der Stelle EFB-A anklicken. Im erhaltenen
+   Formular den Namen "EFB-A" durch den Ihrer Beratungsstelle
+   ersetzen und "Speichern". Alle weitern Stellen eintragen, welche
+   auf dieser Datenbank künftig arbeiten sollen.
+
+2. Eintragen des Regierungsbezirkes und des Kreises für die
+   Bundesstatistik.
+
+   Die Tabellen Regierungsbezirk und Kreis auswählen und den
+   entsprechenden Regierungsbezirke und Kreis für Ihre Dienststelle(n)
+   hinzufügen (Info beim Statistischen Landesamt erfragen). Beim Code
+   die Zahlen für den Regierungsbezirk und Kreis eintragen! Die
+   Reihenfolge so ändern, dass die neuen Einträge an erster Stelle
+   stehen (sie werden damit in der Auswahlliste beim Eingabeformular
+   zuerst angezeigt), und die unpassenden Einträge auf "off" setzen.
+
+3. Mitarbeiter eintragen.
+   
+   Als Benutzer "Admin" anmelden, im Menü "Administration" den Punkt
+   Mitarbeiter "Neueintrag" wählen und die Mitarbeiter eintragen.
+   Achtung: Im Formularfeld: "Benutzer" muss jeweils die Userkennung
+   aus der HTTP-Authorisierung (vgl. Punkt 5 bei A. Server) identisch
+   übernommen werden!
+
+   Für die Berater/Therapeuten und die Verwaltungsfachkraft die
+   Benutzerrechte (Kürzel: "bearb" oder "verw" oder "admin" )
+   auswählen.  
+
+4. Bundesjugendhilfestatistik. Unbedingt Lesen!
+
+   Items, welche zur Bundesjugendhilfestatistik gehören, auf keinen
+   Fall verändern oder gar neue hinzufügen (ausser der Items
+   Regierungsbezirk, Kreis, Gemeinde, Gemeindeteil anhand der Infos
+   des Statistischen Landesamtes). Die Änderungsmöglichkeit von Items
+   haben wir angeboten, damit der Anwender kleinere Anpassungen der
+   gesetzlichen Bundesstatistik selbst vornehmen kann, wie diejenige im
+   letzten Jahr z.B. als sich die Beschreibung des Items Sucht in der
+   Bundestatistik änderte.
+
+5. Fachstatistik.
+   
+   Im Menü "Adminstration" in der Rubrik "Kategorien" den Link
+   "Fachstatistik" anklicken.
+
+   Items der Kategorien, welche für die Fachstatistik verwandt werden,
+   entsprechend den Wünschen der regionalen Jugendhilfeplanung und
+   fachlichen Bedürfnissen ergänzen bzw. präzisieren (wie z.B. Region,
+   Sozialraum 1)
+
+--------------
+
+Jürg Huber, 
+juerg@pantau.in-berlin.de
+http://pantau.in-berlin.de
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+Cache für nicht-primäre Schlüssel
+
+ids für Bereichskategorieen sollten automatisch über Feld
+zugänglich sein:
+
+  fs['gsa'] = 2
+  fs['gsa_kat'] liefert id für den code, der 2<=gsa<=4
+  repräsentiert. 

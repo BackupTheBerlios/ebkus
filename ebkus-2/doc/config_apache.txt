@@ -1,0 +1,102 @@
+Beispiel-Konfiguration des Apache für EBKuS
+============================================
+
+1.
+
+In die Datei httpd.conf des HTTPD-Servers Apache sollten die
+untenstehenden Einträge kopiert werden, damit der Apache
+
+a) die User-Authorisierung für EBKuS durchführt
+b) ein eigenes cgi-bin (ScriptAlias)-Verzeichnis für EBKuS da ist
+c) ein UserDir Verzeichnis für den Benutzer ebkus  vorhanden ist.
+
+Bitte Reihenfolge der Direktiven in der httpd.conf beachten.  Siehe
+auch die Kommentare in der httpd.conf zu den nachfolgend
+verwandten "Directiven" des Apache.
+
+2. 
+
+Mit dem zum Apache gehörenden Programm "htpasswd" die Benutzerkennungen
+und Passwörter für die Anwender von EBKuS in die bei der Direktive
+"AuthUserFile" eingetragene Datei aufnehmen.
+
+3. HTTP-Server neu starten!
+
+
+Beispiel in die Datei httpd.conf kopieren und anpassen.
+
+
+#################in die httpd.conf des Apache kopieren########
+# Konfiguration für EBKuS
+##############################################################
+
+UserDir public_html 
+
+#
+# ein neues cgi-bin (ScriptAlias)-Verzeichnis fuer EBKuS
+#
+
+ScriptAlias /efb/ /usr/local/httpd/efb/  
+
+
+# Für Python-Scripte ausserhalb des ScriptAliased Directory
+
+AddHandler cgi-script .py
+
+#
+# Directory Direktiven mit Passwort-Authorisierung für das 
+# neue cgi-bin (ScriptAlias)-Verzeichnis /efb/
+#
+
+<Directory /usr/local/httpd/efb>        
+AllowOverride None
+Options FollowSymLinks ExecCGI Includes 
+Order Deny,Allow
+Deny from all
+# Die berechtigte Hostnamen oder IP-Adressen nach from eintragen
+Allow from ihr_server.domainname.de	     # ändern!
+AuthType Basic
+AuthUserFile /etc/httpd/efb_users
+AuthName "Klientenkartei EFB"
+require valid-user
+</Directory>
+
+#
+# Direktiven für das UserDir von EBKuS.
+#
+
+<Directory /home/ebkus/public_html> 
+AllowOverride None
+Options ExecCGI Indexes FollowSymLinks Includes  MultiViews
+Order Deny,Allow 
+Deny from all
+# Die berechtigten Hostnamen oder IP-Adressen nach from eintragen
+Allow from ihr_server.domainname.de  # ändern!
+</Directory>
+
+#########Ende der EBKuS Konfiguration#######################
+
+4. 
+
+Im angelegten cgi-bin ScriptAlias Verzeichnis /usr/local/httpd/efb
+unbedingt einen symbolischen Link mit Namen ebs auf die Datei
+ebcgi.py im Installationsverzeichnis von EBKuS anlegen:
+
+Befehl: ln -s /home/ebkus/public_html/ebkus/ebcgi.py ebs
+
+Vgl. auch die Erläuterung in README.server.
+
+5. 
+
+Die Url für die Klientenverwaltung "EBKuS" lautet dann:
+
+http://ihr_server_name/efb/ebs/menu
+====================================
+
+
+--------------
+Jürg Huber
+juerg@pantau.in-berlin.de
+http://pantau.in-berlin.de
+
+

@@ -1,0 +1,566 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//DE">
+<!--Converted with LaTeX2HTML 96.1-h (September 30, 1996) by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds -->
+<HTML>
+<HEAD>
+<TITLE>Bedienungsanleitung</TITLE>
+<META NAME="description" CONTENT="Bedienungsanleitung">
+<META NAME="keywords" CONTENT="ebkus">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<LINK REL=STYLESHEET HREF="ebkus.css">
+</HEAD>
+<BODY LANG="DE" >
+ <A NAME="tex2html143" HREF="node4.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="images/next_motif.gif"></A> <A NAME="tex2html141" HREF="ebkus.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="images/up_motif.gif"></A> <A NAME="tex2html135" HREF="node2.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="images/previous_motif.gif"></A> <A NAME="tex2html145" HREF="node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="images/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html144" HREF="node4.html">Datensicherheit und -schutz</A>
+<B>Up:</B> <A NAME="tex2html142" HREF="ebkus.html">EBKuS 2.0 - Klientenverwaltung</A>
+<B> Previous:</B> <A NAME="tex2html136" HREF="node2.html">Anwendungsbeschreibung</A>
+<BR> <P>
+<H1><A NAME="SECTION00030000000000000000">Bedienungsanleitung</A></H1>
+<P>
+<A NAME="secbedienung">&#160;</A>
+<P>
+<H2><A NAME="SECTION00031000000000000000">Generelles</A></H2>
+<P>
+<A NAME="secGenerelles">&#160;</A>
+<P>
+Wer schon mit der Bedienung eines Hypertext(Internet)-Browsers vertraut ist,
+findet sich schnell in der Anwendung zurecht. Wer zum ersten Mal einen solchen
+verwendet, wird sich nach ca. 1-2 Stunden Einführungszeit in der Bedienung des
+Browsers und den Umgang mit Hypertextverweisen in der <em>EBKuS</em>-Anwendung
+auskennen.
+<P>
+Das Hauptmenü bietet dem Benutzer die Auswahl seiner Klienten an, Menüpunkte
+für Akteneinträge, häufig gebrauchte Datenbankabfragen sowie die
+Administration des Systems und die Dokumentation. In der Klientenkarte bekommt
+der Anwender alle Möglichkeiten der weiteren Bearbeitung in Form von
+Hypertextverweisen und alle Informationen auf einen Blick zusammengefasst.
+Auf den Eingabeformularen sind die jeweils aktuell benötigten Menüpunkte
+standardisiert im Kopf und am Fuss der Seite plaziert.
+<P>
+Die Eingabebestätigung erscheint einheitlich in einer der drei folgenden
+Formen:
+<UL>
+<LI> <em>Okay:</em> Die Anwendereingaben werden an das Programm zur Bearbeitung
+  und Beantwortung gesandt.
+<LI> <em>Speichern:</em> Eingaben speichern in der <em>EBKuS-Datenbank</em>.
+<LI> <em>Reset:</em> Setzt das Formular in den Ursprungszustand zurück
+</UL>
+<P>
+<UL>
+<LI> <em>Verweise:</em> Heben sich in der Anwendung als `unterstrichener Text'
+  und mit den eingestellten Standardfarben Ihres Browsers für Verweise von den
+  anderen Dokumententeilen ab.
+</UL>
+<P>
+<UL>
+<LI> <em>Bei Fehleingaben</em> erhält der Anwender in der Regel eine
+  spezifische, differenzierte Rückmeldung von <em>EBKuS</em>.
+</UL><H2><A NAME="SECTION00032000000000000000">Start</A></H2>
+<P>
+<A NAME="secstart">&#160;</A>
+<P>
+Für den Start des Programms ruft man einen HTTP-Browser<A NAME="tex2html3" HREF="footnode.html#92"><IMG  ALIGN=BOTTOM ALT="gif" SRC="images/foot_motif.gif"></A> (Internet-Browser wie Netscape,
+Internet-Explorer) auf und die URL<A NAME="tex2html4" HREF="footnode.html#93"><IMG  ALIGN=BOTTOM ALT="gif" SRC="images/foot_motif.gif"></A>:
+<BLOCKQUOTE> http://ihr-www-server/cgi-bin/ebcgi.py/menu
+</BLOCKQUOTE>
+<P>
+Entsprechend der Konfiguration des von \emph{EBKuS} benutzten CGI-BIN
+Verzeichnisses kann die URL statt cgi-bin und ebcgi.py auch anders
+lauten, z.B. wenn ein Alias für das cgi-bin Verzeichnis wie efb und
+ein symbolischer Link (Linux) für ebcgi.py wie ebkus verwendet
+werden. Die Url hiesse dann anwenderfreundlich: 
+<BLOCKQUOTE> http://ihr-www-server/efb/ebkus/menu
+</BLOCKQUOTE>
+<P>
+Sinnvollerweise sollte diese Adresse als immer beim Start automatisch
+anzufordernde Startseite (die sog. Homepage) beim Browser eingetragen sein.
+Nach der Benutzer-, Passwortabfrage und -Prüfung erhält der Mitarbeiter das
+Hauptmenü, u.a. mit dem zentralen Klientenauswahlfenster.
+<P>
+<H2><A NAME="SECTION00033000000000000000">Das Hauptmenü</A></H2>
+<P>
+<A NAME="secHauptmenue">&#160;</A>
+<P>
+Das Hauptmenü beinhaltet die einzelnen Menüs für die Klientenverwaltung und
+die Akten, die Menüs für die statistischen Abfragen und die Administration
+sowie den Verweis auf das Menü zur Gruppenverwaltung.
+<P>
+<H3><A NAME="SECTION00033100000000000000">Das Menü der Klientenverwaltung</A></H3>
+<P>
+Das rechte Auswahlfenster zeigt dem Benutzer die Klienten (Bearbeiter,
+Klientenvor- und -nachname , Fallnummer, Geburtsdatum) aus seinen laufenden
+Beratungen. Die Auswahl eines Klientennamens mit der Maus und die
+Eingabebestätigung fordert die zugehörige Klientenkarte mit allen Einträgen
+für diesen Klienten an.
+<P>
+Soll gleichzeitig ein bestimmtes Formular für eine Eingabe zum ausgewählten
+Klienten geladen werden, ist dieses im Menü links anzukreuzen (z.B.
+`Fachstatistik', `Bundesjugendhilfestatistik'), bevor mit der Maus die Eingabe
+bestätigt wird. Die Anwendung erwartet, dass immer ein Klient und ein Formular
+angegeben ist, ausser bei der Klientenkarte, wo die Auswahl des Klienten für
+die Anzeige der Klientenkarte ausreichend ist, und der Suchfunktion. Wir
+empfehlen, in der Regel die Klientenkarte für Formularaufrufe zu verwenden,
+weil dort alle Informationen angezeigt werden und alle Eingaben transparent
+über die Hypertextverweise in der `Karte' möglich sind.
+<P>
+Das `Ankreuzmenü' neben dem Auswahlfenster gruppiert die Formularseiten bzw.
+Aktionen in folgende Untermenüs:
+<DL ><DT><DD> <em>Neu:</em> Neuaufnahme, Neue Gruppe, Neue Statistikformulare
+<DT><DD> <em>Ändern:</em> Statistikeinträge korrigieren
+<DT><DD> <em>Ansicht:</em> Klientenkarte, Aktenvorblatt, Dokumente (Akte)
+<DT><DD> <em>Suche:</em> Suche in der Klientenkartei nach Klienten und
+  Bezugspersonen
+<P>
+</DL>
+<P>
+Weiter gibt es Verweise zur Gruppenkartei, zu den Abfragen, zur Administration
+und zu der Programmdokumentation (Anwendungsbeschreibung).  Die Beschreibung
+aller Menüpunkte im einzelnen erscheint unnötig, da die Auswahl
+selbsterklärend formuliert ist und wir uns deshalb darauf beschränken, auf
+einige Besonderheiten hinzuweisen.
+<P>
+<H3><A NAME="SECTION00033200000000000000">Das Menü `Abfragen' - Suche, Beratungen, Statistik</A></H3>
+<P>
+Das Abfragemenü auf der Eingangsseite gruppiert sich in:
+<DL ><DT><DD> <em>Suche:</em> Suche in der Klientenkartei nach Klienten und
+  Bezugspersonen, Gruppen
+<DT><DD> <em>Beratungen:</em> laufende, alle, abgeschlossene, ab Fallnummer ?
+<DT><DD> <em>Statistik:</em> Neumeldungen und abgeschlossene Beratungen,
+  Klientenzahlen, Fachstatistik, Itemauswahl für gezielte Abfragen,
+  Bundesjugendhilfestatistik
+<P>
+</DL>
+<P>
+Mit einem Mausklick auf den entsprechenden Hypertextverweis erhält man die
+Ausgabe in Listen- bzw. Tabellenform (so die `laufenden, abgeschlossenen, alle
+Beratungen' eines Mitarbeiters, sowie Statistiken) oder das entsprechende
+Abfrageformular für die Statistiken.
+<P>
+<H3><A NAME="SECTION00033300000000000000">Das Menü `Administration'</A></H3>
+<P>
+Das Administrationsmenü auf der Eingangsseite enthält die Hauptpunkte:
+<DL ><DT><DD> <em>Kategorien:</em> Alle, Fachstatistik, Leistungen, Mitarbeiter
+<DT><DD> <em>Mitarbeiter:</em> Neueintrag, Änderung
+<DT><DD> <em>Akten:</em> Import, Export, Löschen
+<DT><DD> <em>Stellenabgleich:</em> Datenaustausch, Protokolle
+<DT><DD> <em>Bundesstatistik:</em> Exportieren, Downloadliste
+<P>
+</DL>
+<P>
+Der Aufruf eines Hypertexterweises unter `Kategorie' listet die entsprechenden
+Kategorie- bzw. Merkmalstabellen auf.
+<P>
+Der Punkt Datenbank - Stellenabgleich informiert über die Datumsangaben des
+Datenabgleichs der Statistik mit anderen Beratungsstellen und startet den Im-
+bzw. Export für die gewünschten Datenbanken.
+<P>
+<H3><A NAME="SECTION00033400000000000000">Das Menü `Dokumentation'</A></H3>
+<P>
+Es enthält zum einen diese Anwendungsbeschreibung im HTML-Format, so dass der
+Anwender in einem eigenen Browserfenster schnell Hilfe findet.
+<P>
+Weiterhin können Dokumentationen, welche für die Arbeit einer
+Erziehungsberatungsstelle schnell verfügbar sein sollen, hier als TOP-Punkte
+aufgelistet werden. In der mitgelieferten Distribution liegt ein Vorschlag
+bei, hier den ICD-10 von DIMDI in der HTML-Fassung anzubieten, was ein
+schnelles Blättern und Suchen in diesem Klassifikationssystem erlaubt.
+<P>
+<H2><A NAME="SECTION00034000000000000000">Die Klientenkarte</A></H2>
+<P>
+<A NAME="secKlientenkarte">&#160;</A>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü: Klient; Kopfmenü: Klientenkarte.
+<DT><DD> <em>Die Klientenkarte</em> fasst alle eingetragenen Informationen zum
+  Klienten zusammen. Sie enthält die Stammdaten des Klienten und der
+  Bezugspersonen aus der Beratung, die Anmeldeinformation, die
+  Einrichtungskontakte, die Beratungsleistungen, -Datumsangaben und
+  Mitarbeiter, den zuständigen Bearbeiter, den Beratungsstand (laufend,
+  z.d.A.) sowie das Vorliegen der Statistikeinträge und die Notizen.
+<DT><DD> <em>Änderung: </em>Nach jeder Änderung bzw. Neueintrag wird die angezeigte
+  Klientenkarte mit den in der Datenbank eingegebenen Daten aktualisiert.
+<DT><DD> <em>Die Hypertextverweise</em> in der Klientenkarte stehen für laufende
+  Beratungsfälle zur Verfügung.
+<P>
+  Nach dem z.d.A Eintrag (Beratungsabschluss) erscheint die Klientenkarte im
+  `Lesemodus', ohne die unterstrichenen Verweise.
+<P>
+  Die Wiederaufnahme oder das Rückgängigmachen des z.d.A-Eintrages revidiert
+  die Anzeige für den aktuellen `Beratungsfall' wieder auf eine mit aktiven
+  unterstrichenen Verweisen, währende die abgeschlossenen `Beratungsfälle'
+  dauerhaft ohne Verweise dargestellt werden.
+<P>
+</DL><H3><A NAME="SECTION00034100000000000000">Neuer Eintrag in der Klientenkarte</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hypertextverweis im <B>Tabellenkopf</B>.
+<P>
+<DT><DD> <em>Tabellenkopf: </em>Ein Mausklick auf die unterstrichene
+  Tabellenüberschrift fordert immer das leere Formular für den gewünschten
+  Neueintrag zur angeklickten Überschrift an (wie z.B.  Geschwister;
+  Einrichtungskontakt; Leistung; Bearbeiter; Stand; Fachstatistik;
+  Bundesjugendhilfestatistik).
+<P>
+</DL><H3><A NAME="SECTION00034200000000000000">Korrektur eines Eintrages in der Klientenkarte</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hypertextverweis in der <B>Tabellenzeile</B>.
+<DT><DD> <em>Tabellenzeile:</em> Ein Mausklick auf den unterstrichen Verweis in der
+  Tabellenzeile fordert immer das Korrekturformular mit dem ausgewählten
+  Eintrag an.
+<P>
+</DL><H3><A NAME="SECTION00034300000000000000">Notizen in der Klientenkarte</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hypertextverweis `Notiz' in der Tabellenzeile.
+<DT><DD> <em>Notizen:</em> Alle Notizen werden gesammelt unten auf der Seite
+  angezeigt.
+<P>
+</DL><H2><A NAME="SECTION00035000000000000000">Die Dokumentenkarte</A></H2>
+<P>
+<A NAME="secDokumentenkarte">&#160;</A>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü: Dokumente + Klient; Kopfmenü: Dokumente.
+<DT><DD> <em>Die Dokumentenkarte</em> zeigt den Dokumentenindex einer Akte sowie
+  den Index der Beraternotizen an. Sie enthält in der Kopfzeile das Hauptmenü
+  für die dokumentenbezogenen Funktionen (Import, Neuer Text, Ändern, Löschen)
+  wie für die Print- und Viewausgaben der Dokumente.
+<DT><DD> <em>Änderung: </em>Nach jeder Änderung bzw. Neueintrag oder Import einer
+  Datei in die Akte wird die angezeigte Dokumentenkarte mit den in der
+  Datenbank eingegebenen Daten aktualisiert.
+<DT><DD> <em>Die Hypertextverweise</em> in der Dokumentenkarte stehen für laufende
+  Beratungsfälle dem zuständigen Berater zur Verfügung. Nach dem z.d.A Eintrag
+  (Beratungsabschluss) erscheint die Dokumentenkarte im `Lesemodus', ohne die
+  unterstrichenen Verweise. Die Wiederaufnahme oder das Rückgängigmachen des
+  z.d.A-Eintrages revidiert die Anzeige für die Dokumentenliste wieder auf
+  eine mit aktiven unterstrichenen Verweisen.
+<P>
+</DL><H3><A NAME="SECTION00035100000000000000">Menü der Dokumentenkarte</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hypertextverweise in der <B>Kopfzeile</B> und für die
+  einzelnen Dokumente im <B>Inhaltsverzeichnis</B> der Akte.
+<DT><DD> <em>Kopfzeile: </em> Das Menü umfasst: <B>Neuer Text, Import einer
+    Datei, Text ändern, Dokument bzw. Text löschen</B>. Die diesbezüglichen
+  Formulare erhält der Anwender durch Mausklick auf die jeweilige
+  unterstrichene Hypertextreferenz.
+<DT><DD> <em>Inhaltsverzeichnis:</em> Es gliedert sich in drei Indexteile: <B>
+    Aktendokumente, Beraternotizen, Printausgaben</B> . Jedes Dokument bzw.
+  jeder Eintrag ist als Hyptertextreferenz markiert und wird per Mausklick im
+  Lesemodus geöffnet.
+<P>
+</DL><H2><A NAME="SECTION00036000000000000000">Die Formulare - Aufruf, Felder, Hinweise</A></H2>
+<P>
+<A NAME="secFormulare">&#160;</A>
+<P>
+Die folgenden Unterkapitel beschreiben die einzelnen Eingabeformulare. Es
+werden zuerst die Hypertextverweise genannt, mit der das Formular aufgerufen
+wird (<em>`Aufruf'</em>), dann die Eingabefelder dieses Formulars aufgezählt
+(<em>`Formularfelder'</em>) sowie die Felder erwähnt, welche unbedingt als
+(<em>`Voraussetzung zum Speichern'</em>) Pflichtfelder ausgefüllt werden müssen.
+Falls ein Pflichtfeld beim Ausfüllen des Formulars leer gelassen worden ist,
+erhält der Anwender eine Rückmeldung, dass dieses Feld nicht ausgefüllt wurde
+und deshalb der Datensatz nicht abgespeichert werden kann.  Im
+<em>`Seitenfuss'</em> des Formulars sieht der Benutzer in der Regel die schon in
+der Datenbank vorhandenen Daten des Klienten. Unter der Bezeichnung `Übernahme
+in ...' wird aufgeführt, welche Formulareinträge später z.B. in die
+Statistiktabelle übernommen werden. Beschrieben werden auch die vorausgesetzte
+Benutzerberechtigung sowie die für die Bedienung relevanten Besonderheiten
+einzelner Formulare. Das letzte Unterkapitel enthält die Hinweise zur
+Tastatur- und Mausbedienung.
+<P>
+<H3><A NAME="SECTION00036100000000000000">Neuaufnahme - Neue Klientenakte anlegen</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü: Neuaufnahme; Kopfmenü: Neuaufnahme.
+<DT><DD> <em>Formularfelder:</em> Beratungsfallnummer; Stammdaten zum Klienten
+  (Kind, Jugendlicher, junger Erwachsener); Notiz<A NAME="tex2html5" HREF="footnode.html#174"><IMG  ALIGN=BOTTOM ALT="gif" SRC="images/foot_motif.gif"></A>; Beginndatum des `Beratungsfalles';
+  zuständiger Bearbeiter; Leistungsart, Mitarbeiter, Leistungsbeginndatum.
+<DT><DD> <em>Beratungsfallnummer:</em> Mit der Neuaufnahme generiert <em>EBKuS</em>
+  eine sog. `Fallnummer' in der Form <em>58-1998A</em>. Die Zahl vor dem
+  Bindestrich gibt die Anzahl der Beratungsfälle seit Jahresbeginn, die
+  Buchstaben nach der Jahreszahl das (maximal achtstellige)
+  Stellenzeichen(Kürzel) an. Die Beratungsfallnummer dient bei `anonymen'
+  Beratungsfällen und bei der Statistik zur Abstimmung mit der papierenen Akte
+  bzw. anderen Formularen.
+<DT><DD> <em>Pflichteinträge:</em> Pflichteinträge für das Anlegen einer Akte und
+  eines Falles sind: Namenseintrag (z.Bsp. `anonym'), Geburtsdatum,
+  zuständiger Bearbeiter, Beginndatum, Mitarbeiter des Erstgesprächs, Datum
+  des Erstgesprächs.  Für das Geburtsdatum wird keine formalisierte Form
+  verlangt, um keine Bürokratisierung in Erstberatungsgespräche zu bringen.
+  (Möglich wären z.B. 6 Jahre, 6,5 oder 12.4.1993). `Wohnhaft bei' gibt die
+  Merkmale zum Familienstatus an.
+<DT><DD> <em>Dienststelle:</em> Beim Speichern wird die Dienststelle der Datenbank
+  zur Akte (in Stellenzeichen `Beginn' und Stelllenzeichen `aktuell' )
+  eingetragen, falls das Formular keine Wahl der Dienststelle anzeigt.
+<DT><DD> <em>Übernahme in andere Tabellen:</em> Familienstatus, Leistungsart,
+  Fallbeginn, Fallnummer werden beim Ausfüllen der Fach- und
+  Bundesjugendhilfestatistikkarte dort zur Übernahme angeboten.
+<P>
+</DL><H3><A NAME="SECTION00036200000000000000">Neue Bezugsperson - Eltern, Geschwister, Verwandte</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Kopfmenü: Familie; Klientenkarte: Eltern, Geschwister,
+  Verwandte.
+<DT><DD> <em>Formularfelder:</em> Stammdaten zu 1 Bezugsperson des Klienten;
+  Verwandtschaftsart; Familienstatus; Notiz.
+<DT><DD> <em>Abspeichern:</em> Voraussetzung zum Speichern: `Vor- oder Nachname'
+  bzw. `anonym'.
+<DT><DD> <em>Seitenfuss:</em> Zeigt die bisher aufgenommenen Bezugspersonen des
+  Klienten an.
+<P>
+</DL><H3><A NAME="SECTION00036300000000000000">Neue Anmeldeinformation</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Kopfmenü: Anmeldeinfo; Klientenkarte: Anmeldeinformation.
+<DT><DD> <em>Formularfelder:</em> gemeldet von; gemeldet am; Telefon; auf
+  Empfehlung von; Zugangsmodus; Anmeldegrund; Notiz.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Eintrag in `gemeldet von'.
+<DT><DD> <em>Seitenfuss:</em> Zeigt die früheren Anmeldungen an.
+<DT><DD> <em>Übernahme in andere Tabellen:</em> Der Zugangsmodus wird zur Übernahme
+  in die Fach- und Bundesstatistik angeboten.
+<P>
+</DL><H3><A NAME="SECTION00036400000000000000">Neuer Einrichtungskontakt</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Kopfmenü: Einrichtung; Klientenkarte:
+  Einrichtungskontakt.
+<DT><DD> <em>Formularfelder:</em> Einrichtungsart; Einrichtungsname + Adresse;
+  Kontaktperson; Telefon1, Telefon2; Notiz.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Eintrag in `Einrichtungsname'.
+<DT><DD> <em>Seitenfuss:</em> Zeigt die schon eingegebenen Einrichtungskontakte an.
+<P>
+</DL><H3><A NAME="SECTION00036500000000000000">Neue Leistung</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Kopfmenü: Leistung; Klientenkarte: Leistung.
+<DT><DD> <em>Formularfelder:</em> Leistungsart; Mitarbeitername; Beginndatum;
+  Endedatum.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Leistungsart, Mitarbeitername,
+  Beginndatum.
+<DT><DD> <em>Seitenfuss:</em> Zeigt die schon eingegebenen Leistungen und
+  Mitarbeiter an.
+<DT><DD> <em>Übernahme in andere Tabellen:</em>Die eingegebenen Leistungsarten
+  werden im Formular `Fachstatistik' zur Übernahme angeboten.
+<P>
+</DL><H3><A NAME="SECTION00036600000000000000">Neue Zuständigkeit - Bearbeiter</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Kopfmenü: Bearbeiter; Klientenkarte: Bearbeiter.
+<DT><DD> <em>Formularfelder:</em> Neuer zuständiger Mitarbeiter; Beginn der
+  Zuständigkeit.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Alle Felder.
+<DT><DD> <em>Seitenfuss:</em> Zeigt die bisherigen zuständigen Bearbeiter an.
+<DT><DD> <em>Zuständigkeitsende:</em> Die Zuständigkeit des bisherigen Bearbeiters
+  wird mit dem Beginndatum des neu zuständigen Mitarbeiters automatisch
+  ausgetragen.
+<P>
+</DL><H3><A NAME="SECTION00036700000000000000">Abschlussdatum - z.d.A.</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Kopfmenü: z.d.A.; Klientenkarte: Stand.
+<DT><DD> <em>Stand:</em> Ein Mausklick auf die Überschrift `Stand' in der
+  Klientenkarte liefert entweder das Formular für den Beratungsabschluss, das
+  Formular für die Wiederaufnahme oder macht den Beratungsabschluss
+  rückgängig, falls seit dem Abschluss keine 6 Monate vergangen sind. Der
+  unterschiedliche Bearbeitungsstand wird farblich angezeigt: weiss: `laufende
+  Beratung', meermuschel: `z.d.A und noch nicht wiederaufnehmbar', leinen:
+  `z.d.A.  und wiederaufnehmbar'.
+<DT><DD> <em>Formularfelder:</em> Abschlussdatum des `Beratungsfalles'.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Abschlussdatum, Vorliegen der Fach-
+  und Bundesjugendhilfestatistik.
+<DT><DD> <em>Seitenfuss:</em> Zeigt die bisherigen `Beratungsfälle' und
+  `Zuständigkeiten' an.
+<DT><DD> <em>Zuständigkeitsende:</em> Die Zuständigkeit des bisherigen Bearbeiters
+  wird mit dem Abschlussdatum automatisch ausgetragen.
+<DT><DD> <em>Lesemodus:</em> Die Akte ist nach dem Eintrag des Abschlussdatums
+  nicht mehr beschreibbar. Um sie wieder beschreibbar zu machen, muss der
+  Abschluss rückgängig gemacht oder die Akte wiederaufgenommen werden, wenn
+  ein erneuter `Beratungsfall' beginnt (6 Monate nach Abschluss). Eine Anzeige
+  im Klientenauswahlfenster des Hauptmenüs unterbleibt.
+<P>
+</DL><H3><A NAME="SECTION00036800000000000000">Abschlussdatum Rückgängigmachen</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Kopfmenü: z.d.A. rückgängig; Klientenkarte: Stand.
+<DT><DD> <em>Stand:</em> Ein Mausklick auf `z.d.A. rückgängig' oder 'Stand' löscht
+  das bisherige Abschlussdatum in der Klientenkarte und macht die Akte wieder
+  beschreibbar (bis 6 Monate nach Beratungsende).
+<P>
+</DL><H3><A NAME="SECTION00036900000000000000">Wiederaufnahme der Klientenakte</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Kopfmenü: Wiederaufnahme; Klientenkarte: Stand.
+<DT><DD> <em>Formularfelder:</em> Beratungsfallnummer; Stammdaten zum Klienten
+  (Kind, Jugendlicher, junger Erwachsener); Notiz; Beginndatum des
+  `Beratungsfalles'; zuständiger Bearbeiter; Leistungsart, Mitarbeiter,
+  Leistungsbeginndatum.
+<DT><DD> <em>Aktualisierung:</em> Die Klientenstammdaten werden gegebenfalls
+  aktualisiert.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Prüfung der Frist -
+  Wiederaufnahmefrist -, ob ein neuer `Beratungsfall' vorliegt; Pflichtfelder
+  wie bei `Neue Akte anlegen'.
+<P>
+</DL><H3><A NAME="SECTION000361000000000000000">Neuer Text, Aktenvermerk, Beraternotiz</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Dokumenten- und Klientenkarte: Text neu.
+<DT><DD> <em>Formularfelder:</em> Betreffzeile, Datum, Textfeld, Mitarbeiter, Art
+  des Textes.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Betreff, Datumskontrolle,
+  Authorisierung, Text.
+<P>
+</DL><H3><A NAME="SECTION000361100000000000000">Dokument (Datei) importieren</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Dokumenten- und Klientenkarte: Dateiimport
+<DT><DD> <em>Formularfelder:</em> Betreffzeile, Datum, Datei, Mitarbeiter, Art des
+  Dokumentes.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Betreff, Datumskontrolle,
+  Authorisierung, Datei, der Anwendung bekannter Dateityp (Mime Typ).
+<P>
+</DL><H3><A NAME="SECTION000361200000000000000">Printausgabe von Aktentexten bzw. Beraternotizen</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Dokumentenkarte: Printausgabe.
+<DT><DD> <em>Hypertextreferenz:</em> Textformat: Sie fasst die einzelnen Texte
+  einer Akte im Ascii-Format mit Inhaltsverzeichnis zusammen (Ascii-Format).
+  PDF-Format: Sie fasst die Texte einer Akte im PDF-Format mit
+  Inhaltsverzeichnis zusammen.
+<P>
+</DL><H3><A NAME="SECTION000361300000000000000">Text, Aktenvermerk, Beraternotiz ändern</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Dokumentenkarte: Text ändern.
+<DT><DD> <em>Formularfelder:</em> Betreffzeile, Datum, Textfeld, Mitarbeiter, Art
+  des Textes.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Betreff, Datumskontrolle,
+  Authorisierung, Text.
+<P>
+</DL><H3><A NAME="SECTION000361400000000000000">Dokument oder Text löschen</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Dokumentenkarte: Text löschen.
+<DT><DD> <em>Formularfelder:</em> Auswahlliste der Aktendokumente, -texte.
+<DT><DD> <em>Voraussetzung zum Löschen:</em> Authorisierung, Begrenzung der Auswahl
+  auf den zuständigen Bearbeiter.
+<P>
+</DL><H3><A NAME="SECTION000361500000000000000">Neuer Fachstatistikeintrag</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü: Fachstatistik + Klient; Kopfmenü:
+  Fachstatistik; Klientenkarte: Fachstatistik.
+<DT><DD> <em>Formularfelder:</em> Mitarbeiter; Fallnummer; Jahr; Dienststelle;
+  Region; Geschlecht; Altersgruppe Kind; Familienstatus; Zugangsmodus;
+  Psychotherapieerfahrung; Kinderanzahl; Geschwisterreihe; Herkunft der
+  Mutter; Herkunft des Vaters; Beruf der Mutter; Beruf des Vaters; Alter der
+  Mutter; Alter des Vaters; Finanzieller Druck; Problemlage 1 bei der
+  Anmeldung; Problemlage 2 bei der Anmeldung; Hauptproblematik der Eltern;
+  Hauptproblematik des Kindes/Jugendlichen; Problemspektrum Eltern;
+  Problemspektrum Kind/Jugendliche; Beendigungsgrund; Terminanzahl;
+  Kontaktanzahl Mutter; Kontaktanzahl Vater; Kontaktanzahl Kind; Kontaktanzahl
+  Paar: Kontaktanzahl Familie; Kontaktanzahl Sozialarbeiter; Kontaktanzahl
+  Lehrer; Kontaktanzahl Erzieher; Kontaktanzahl Sonstige; Notiz.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Dienststelle, Mitarbeiter,
+  Beratungsfallnumer, Leistungen, Terminanzahl. Alle anderen Listenfelder
+  enthalten ein Merkmal `keine Angabe' oder können leer gelassen werden.
+<DT><DD> <em>Übernahme bisheriger Eingaben:</em> Bisherige Eingaben wie die
+  Statistik des Vorjahres bzw. einige Angaben aus der Akte werden dem Anwender
+  automatisch zur Auswahl und eventuellen Übernahme in den Statistikeintrag
+  angeboten.
+<DT><DD> <em>Zugehörige Akte:</em> Ein Fachstatistikeintrag setzt nicht voraus,
+  dass eine zugehörige Akte in der Datenbank existiert.
+<P>
+</DL><H3><A NAME="SECTION000361600000000000000">Neuer Bundesjugendhilfestatistikeintrag</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü: Bundesstatistik + Klient; Kopfmenü:
+  JGH-Statistik; Klientenkarte: Bundesstatistik.
+<DT><DD> <em>Formularfelder:</em> Mitarbeiter; Fallnummer; Geschwisterfall;
+  Dienststelle; Regierungsbezirk; Kreis; Gemeinde; Gemeindeteil; Traeger;
+  Beginn Monat; Beginn Jahr; Ende Monat; Ende Jahr; Beendigungsgrund;
+  Geschlecht; Altersgruppe; lebt bei; Herkunft Eltern; Geschwisterzahl;
+  Geschwisterzahl unbekannt; Kontaktaufnahme; Beratungsanlass 0;
+  Beratungsanlass 1; Beratungsanlass 2; Beratungsanlass 3; Beratungsanlass 4;
+  Beratungsanlass 5; Beratungsanlass 6; Beratungsanlass 7; Beratungsanlass 8;
+  Beratungsanlass 9; Beratungsschwerpunkt; Beratung Kind; Beratung Eltern;
+  Beratung Familie; Beratung Umfeld.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Alle Felder.
+<DT><DD> <em>Übernahme bisheriger Eingaben:</em> Bisherige Eingaben wie einige
+  Angaben aus der Akte werden dem Anwender automatisch zur Auswahl und
+  eventuellen Übernahme in den Statistikeintrag angeboten.
+<DT><DD> <em>Zugehörige Akte:</em> Der Bundesjugendhilfestatistikeintrag setzt
+  nicht voraus, dass eine zugehörige Akte in der Datenbank existiert.
+<P>
+</DL><H3><A NAME="SECTION000361700000000000000">Änderung eines Akteneintrages</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hypertextverweis in der zugehörigen Tabellenzeile der
+  Klientenkarte.
+<DT><DD> <em>Die Formular- sowie die Pflichtfelder zum Speichern</em> entsprechen
+  den beschriebenen Formularen für Neueinträge.
+<P>
+</DL><H3><A NAME="SECTION000361800000000000000">Änderung eines Statistikeintrages</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü: Fach- bzw. JGH-Statistik + Klient;
+  Klientenkarte: Jahreszahl nach dem Hypertextverweis `Fach- oder
+  JGH-Statistik'.
+<DT><DD> <em>Ohne Aktenbezug:</em> Ist ein Statistikeintrag nicht mit einer Akte
+  verbunden, erhält der Anwender ein Auswahlfenster mit Fallnummern zur
+  Auswahl.
+<DT><DD> <em>Die Formularfelder sowie die Voraussetzung zum Speichern</em>
+  entsprechen den beschriebenen Formularen für Neueinträge.
+<P>
+</DL><H3><A NAME="SECTION000361900000000000000">Aktenvorblatt</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü: Aktenvorblatt; Kopfmenü: Aktenvorblatt.
+<DT><DD> <em>Vorblatt für die Papierakte:</em> Das Aktenvorblatt besteht aus den
+  Einträgen in der Klientenkarte, ergänzt um leere Formularzeilen für
+  zukünftige Einträge und ist gedacht als zusammenfassendes Formular für eine
+  Papierakte.
+<P>
+</DL><H3><A NAME="SECTION000362000000000000000">Merkmalsformular</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü Kategorien, dann Hypertextverweis im
+  Tabellenkopf oder in der Tabellenzeile.
+<DT><DD> <em>Benutzerberechtigung:</em> Administrator
+<DT><DD> <em>Formularfelder:</em> Code (Codename, maximal 8 Zeichen, einmalig
+  innerhalb der Kategorie); Merkmalsname; Sort (Sortierreihenfolge für die
+  Anzeige); Minimum (Bereichsangabe für Zahleneingaben der Statistik); Maximum
+  (Bereichsangabe für Zahleneingaben der Statistik); Dokumentation (maximal
+  255 Zeichen).
+<DT><DD> <em>Formularfelder, die nur im Änderungsformular da sind:</em> Off
+  (Merkmal erscheint nicht mehr im Eingabeformular); Monat, Jahr (Ab wann das
+  Merkmal als ungültig gilt);
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Alle Felder bis auf die
+  Dokumentation und die Bereichsangaben.
+<DT><DD> <em>Seitenfuss:</em> Zeigt die in der Datenbank eingetragenen Merkmale der
+  Kategorie an.
+<DT><DD> <em>Hinweis:</em> Sofern mehrere Datenbanken Statistikdaten austauschen,
+  müssen gemeinsame Merkmale immer zuerst in der sog. Masterdatenbank
+  (`MasterDB') eingetragen und von dort in die anderen Datenbanken exportiert
+  werden.
+<P>
+</DL><H3><A NAME="SECTION000362100000000000000">Mitarbeiterformular</A></H3>
+<P>
+<DL ><DT><DD> <em>Aufruf:</em> Hauptmenü: Mitarbeiter.
+<DT><DD> <em>Benutzerberechtigung:</em> Administrator
+<DT><DD> <em>Formularfelder:</em> Vorname; Name; Benutzer (einmaliger Benutzername
+  bzw. -zeichen); Status (im Dienst, ausser Dienst); Benutzungsrecht
+  (Benutzergruppe); Hauptdienststelle.
+<DT><DD> <em>Voraussetzung zum Speichern:</em> Alle Felder.
+<DT><DD> <em>Seitenfuss:</em> Zeigt die in der Datenbank eingetragenen Mitarbeiter
+  an.
+<DT><DD> <em>Nebendienststellen:</em> Die Aufnahme von Nebendienstellen könnte auf
+  Bedarf in der Anwendung eingerichtet werden.
+<P>
+</DL><H3><A NAME="SECTION000362200000000000000">Formulargestaltung</A></H3>
+<P>
+Alle Formularseiten sind so weit wie möglich einheitlich gestaltet.  Sie
+werden aufgebaut mit dem Kopfmenü, der Überschrift, den Eingabefelder, dem
+Speichern- bzw. Reset-Knopf, erweiterten Hilfsinformationen bzw. zugehörigen
+Listen und dem Fussmenü.  Die Formulare bestehen aus Text- und
+Zahleneingabefelder, aus einfachen und mehrfachen Auswahlboxen und aus Check-
+sowie Radiobuttons, jeweils in Tabellen angeordnet.
+<P>
+<H3><A NAME="SECTION000362300000000000000">Formularbedienung: Maus- und Tastatur</A></H3>
+<P>
+Mit der Maus wird zuerst das Eingabefeld des Formulars ausgewählt oder man
+bewegt den Cursor mit der Tabulatorstaste von Feld zu Feld. Bei Listenboxen
+kann man, alternativ zur Markierung mit dem Mauszeiger, mit den Cursortasten
+das Listenfenster `Aufmachen' und anschliessend mit `Pfeil hoch' hoch- bzw.
+mit `Pfeil runter' runterscrollen, um dann mit der `Bestätigungstaste' den
+Eintrag zu markieren.  Bei Mehrfachauswahllistenboxen muss u.U. die
+Steuerungstaste in Verbindung mit der Maus betätigt werden, um mehrere
+Einträge zu selektieren oder die Markierung wegzunehmen.
+<P>
+Die Bedienung weicht je nach verwendetem Browser und Betriebssystem u.U. in
+wenigen Punkten von der Beschreibung ab.
+<P>
+<HR><A NAME="tex2html143" HREF="node4.html"><IMG WIDTH=37 HEIGHT=24 ALIGN=BOTTOM ALT="next" SRC="images/next_motif.gif"></A> <A NAME="tex2html141" HREF="ebkus.html"><IMG WIDTH=26 HEIGHT=24 ALIGN=BOTTOM ALT="up" SRC="images/up_motif.gif"></A> <A NAME="tex2html135" HREF="node2.html"><IMG WIDTH=63 HEIGHT=24 ALIGN=BOTTOM ALT="previous" SRC="images/previous_motif.gif"></A> <A NAME="tex2html145" HREF="node1.html"><IMG WIDTH=65 HEIGHT=24 ALIGN=BOTTOM ALT="contents" SRC="images/contents_motif.gif"></A>  <BR>
+<B> Next:</B> <A NAME="tex2html144" HREF="node4.html">Datensicherheit und -schutz</A>
+<B>Up:</B> <A NAME="tex2html142" HREF="ebkus.html">EBKuS 2.0 - Klientenverwaltung</A>
+<B> Previous:</B> <A NAME="tex2html136" HREF="node2.html">Anwendungsbeschreibung</A>
+<P><ADDRESS>
+<A HREF="mailto:juerg@pantau.in-berlin.de">juerg@pantau.in-berlin.de</A>
+</ADDRESS>
+</BODY>
+</HTML>

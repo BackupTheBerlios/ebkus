@@ -1,0 +1,157 @@
+Dateien der EBKuS Klientenverwaltung
+====================================
+
+Verzeichnis EBKuS
+=================
+
+CHANGES			  Historie der Änderungen
+COPYING			  GPL
+config.py		  Konfigurationsparameter
+ebcgi.py		  Server (für cgi-bin Anwendung und Apache).
+ebs.py			  Publishing-Startmodul zum Import von EBKuS.py
+start.py		  Startdatei für die Anwendung (Python-Publisher)
+
+
+Anwendung: Verzeichnis ebkus/app
+================================
+
+EBKuS.py		  Hauptklasse für die Suche nach den Objekten,
+			  welche publiziert werden sollen.
+Request.py		  Allgemeine Klasse für den Request
+cronjobs.py		  Cronjobs für Unix (In der Crontab eintragen)
+dbexport.py		  Im- und Export der Daten für andere EBKuS-Datenbanken
+ebapi.py		  EB Anwendungsschnittstelle
+ebapigen.py		  Die generierte Anwendungsschnittstelle,
+			  nicht editieren! Enthält die Klassen und Objekte.
+ebapih.py		  Hilfsfunktionen für die HTML-Ausgabe
+ebupd.py		  Alle Inserts und Updates für die Datenbank
+jghexport.py		  Erstellt Exportdatei für das Statistische Landesamt
+
+
+Publisher: Verzeichnis ebkus/bobo
+=================================
+(Siehe Lizenz und Copyright im Kopf der Dateien!)
+
+BoboHTTPServer.py	HTTP-Server (bei kleineren Veränderungen am
+			Programm Alternative zum Apache für kleine,
+			lokale Installationen und zum Entwickeln.)
+CGIResponse.py		CGI Output Formatter
+bobo.py			Debugger bobo - Command-Line-Interface
+bci.py			Aufruf Interface für Bobo
+cgi_module_publisher.py Python Objekt Publisher
+pcgi_publisher.py	CGI-Wrapper
+pcgi_time.py		Testprogramm
+
+
+Datenbankmodule: Verzeichnis ebkus/db
+=====================================
+
+dbapp.py                  Basisklassen für Python Datenbankobjekte
+dbcache.py		  Objekt-Cache
+sql.py			  Datenbankschnittstelle und Klassen für SQL-Statements
+
+
+Dokumentation: Verzeichnis ebkus/doc
+====================================
+
+INSTALL.TXT		   Installationsanleitung für Linux
+README.server		   Hinweise für den EBKuS-Server
+config_apache.txt	   Tipps für die Apacha-Konfiguration
+config_bootscript.txt	   Bootscript für SuSE-Linux
+config_mysql.txt	   Tipps für die MySQL-Konfiguration
+config_pdf.txt		   Tipps für die PDF-Ausgabe
+dbabgleich.txt		   Hinweise zum Datenaustausch
+download.txt		   Download-Adressen der Software
+ebkus.pdf		   Anwendungsbeschreibung von EBKuS (PDF-Format)
+ebkus.ps		       "                 "          (Postscript)
+ebkus.tex                      "                 "          (LaTeX)
+
+ebkus/doc/ebkus:	   die HTML-Version (mit latex2html übersetzt)
+
+ebkus/doc/win32:	   Installationsanleitung für Windows
+
+
+Generierung, Migration: Verzeichnis ebkus/gen
+=============================================
+
+Setup.bat		   Aufrufe zum Generieren (Win)
+Setup.sh		   Aufrufe zum Generieren (Linux ..)
+genEb.py		   Generierung der Anwendungsschnittstelle - Klassen
+genebapi.py		   Aufruf für genEB.py, generiert die Klassen
+genschema.py		   Genererierung des Schemas in der Datenbank
+migrate.py		   Aufruf zum Importiert der Daten aus migrdata.py
+			   in die DB.
+migrdata.py		    Daten (Code, Kategorien, Statistik) für den Start
+migrdata_kreuzberg.py	     " " Beispiel aus Kreuzberg-Friedrichshain
+migrdata_minimum.py	     minimaler Datensatz für den Start
+schemadata.py		    Definitionen des Datenbank-Schemas als String
+schemagen.py		    Aufruf für schemagen.py, generiert die DB
+
+
+Publikationsobjekte: Verzeichnis ebkus/html
+===========================================
+
+templates.py		  Alle HTML-Templates
+
+			  Die Klassen zum Publizieren:
+
+abfragen.py		  Abfragen
+administration.py	  Administration
+akte.py			  Akte und Fall
+aktenvorblatt.py	  Aktenvorblatt zum Drucken
+anmeldung.py		  Anmeldung
+bezugsperson.py		  Bezugspersonen
+code.py			  Code und Kategorieen
+datenaustausch.py	  Datenaustausch
+dokument.py		  Dokumente
+dokumentenkarte.py	  Dokumentenkarte
+einrichtungskontakt.py	  Einrichtungskontakte
+fachstatistik.py	  Fachstatistik
+gruppe.py		  Gruppen
+gruppenkarte.py		  Gruppenkarte
+jghstatistik.py		  Bundesjugendhilfestatistik
+klientenkarte.py	  Klientenkarte
+leistung.py		  Leistungen
+menu.py			  Hauptmenü
+mitarbeiter.py		  Mitarbeiter
+viewdokument.py		  Anzeige und Druck von Dokumenten
+zustaendigkeit.py	  Zuständigkeiten für Akten und Fälle
+
+
+MySQL-python: Verzeichnis ebkus/myslq-python-
+============
+
+Das Verzeichnis mysql-python-* enthält das Python-Module für die
+Datenbank MySQL (vgl. die beiliegende Lizenz).
+
+
+PDF-Bibliothek: Verzeichnis ebkus/reportlab
+==============
+
+Das Verzeichnis ebkus/reportlab enthält die
+PDF-Library. (vgl. Lizenz!). (Ist nicht im EBKUS-CVS-Archiv und muss
+zusätzlich installiert werden.)
+
+
+Spezielle Utilities: Verzeichnis ebkus/stuff
+===================
+
+ebkus			Bootskript von EBKuS für SuSE-Linux-Distribution
+ebkus.sh		Startskript für EBKuS als Hintergrundprozess
+			(Linux)
+et.py			Notizdatei zum Ausprobieren von Codefragmenten
+timing.py		Perfomance-Messung
+
+
+
+
+
+
+
+
+
+
+
+
+
+

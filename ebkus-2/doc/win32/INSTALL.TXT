@@ -1,0 +1,350 @@
+EBKuS. Erziehungsberatung - Klientenverwaltung und Statistik
+============================================================
+
+Wichtige Installationshinweise (Windows)
+========================================
+
+Für Linux befinden sich die Installationshinweise im
+Unterverzeichnis ebkus/doc/ in der Datei INSTALL.TXT
+
+Benutzer des EBKuS-CVS-Archivs auf www.berlios.de müssen zusätzlich
+zum Quellcode das Python-Package reportlab (PDF-Bibliothek) im
+Installations-Verzeichnis ebkus installieren. Die Anwendung setzt
+voraus, dass es im Verzeichnis ebkus/reportlab installiert ist.
+
+A. SERVER
+=========
+
+1. Installieren der folgenden Programme (alle Programme sind
+   Open Source Software).
+
+   - Python (Python Interpreter)
+   - MySQL  (SQL-Datenbankserver, Backend zum Speichern der Daten für EBKuS)
+   - Apache (WWW-Server, Ausgabe der HTML-Dokumente für EBKuS)
+   - ebkus-2-0.zip (Python Programm EBKuS )
+
+   Die Internet-Bezugsquellen für diese Programme finden Sie in der
+   Datei download.txt im doc-Verzeichnis. Holen Sie sich die Programme
+   für Ihr Win32-Betriebssystem im Internet. Unsere Beispiele gehen
+   davon aus, dass die Programme in Unterverzeichnisse von
+   C:\Programme\ installiert werden.
+
+   EBkuS-2-0.zip in C:\Programme mit Winzip auspacken.
+   MySQL-python-0.3.5-win32-2.zip im Verzeichnis C:\Programme\ebkus
+   auspacken.
+
+   MySQLdb.py, das MySQL-DB-Python-Modul installieren, das sich bei
+   EBKuS im Verzeichnis C:\Programme\ebkus\ befindet. 
+
+   - Dos-Eingabeauforderung aufrufen.
+   - In das Verzeichnis des Moduls wechseln und darin im Dos-Fenster
+     (Dos-Eingabeaufforderung) folgendes ausführen:
+
+   > python.exe setup.py install
+
+   Die Installation dieses Modul setzt Python 1.52 und höher voraus,
+   sowie MySQL 3.23.32. Vergleiche für Informationen zum Win32-Modul  
+   (Binary) die Homepage: http://home.t-online.de/home/err666/.
+
+   Das Modul MySQLdb.py und die Bibliotheksdateien werden mit dem
+   obigen Befehl in den Modulpfad von Python installiert
+   (z.B. C:\Programme\Python2.1\ und stehen anschliessend dem
+   Python-Interpeter zur Verfügung. MySQLdb ist ein Python-Modul, das
+   von Python und EBKuS importiert wird und die Verbindung sowie die
+   standardisierte SQL-Schnittstelle zur MySQL-Datenbank
+   herzustellt. Für andere SQL-Datenbanken als MySQL wie
+   z.Bsp. Postgres, Oracle, Informix etc. müssten entsprechend andere
+   passende Datenbankmodule von Python installiert und die
+   Adapter-Datei dbadapter.py in EBKuS im Verzeichnis ebkus/db
+   entsprechend angepasst werden.
+
+   Prüfen Sie nach der Installation die Lauffähigkeit aller Programme,
+   indem Sie die folgenden Executables bzw. Programme aufrufen:
+
+   mysqld.exe     (der MySQL-Datenbankserver, MySQL)
+   python.exe     (der Pythoninterpreter, Python)
+   httpd.exe	  (der WWW-Server, Apache)
+
+   Machen sie evtl. getrennte kleine Testeingaben für diese Programme,
+   z.Bsp. indem sie
+
+   - > mysqlshow.exe aufrufen (zeigt alle vorhandenen Datenbanken in
+     MySQL)
+   - > python.exe aufrufen (den Python Interpeter) und an 
+     an der Prompt-MSDOS-Eingabeaufforderung von Python:
+     > import MySQLdb
+     eingeben, um zu testen, ob das Modul MySQLdb importiert wird.
+     > dir()
+     zeigt u.a. das importierte Modul MySQLdb. Dann:
+     > db = MySQLdb.connect(host = 'localhost', db = 'test')
+     > print db
+     Wenn sie <MySQLdb.Connection instance at ... > erhalten, ist das
+     Modul in der Lage, eine Verbindung zum MySQL-Server herzustellen.
+   - am Internet-Browser eine lokale Url des installierten
+     Apache-Server aufrufen: http://localhost/ (Sie sollten die
+     Dokumentation zum Apache erhalten.)
+     
+   oder auch die Testprogramme laufen lassen, welche z.Bsp. bei MySQL
+   dabei sind. Voraussetzung für EBKuS ist, dass die Programme MySQL,
+   Python, das Modul MySQLdb und Apache korrekt installiert und im
+   Pfad enthalten sind (vgl. Punkt 7, Umgebungsvariable.)
+
+   Für die Suche in Texten wird das Programm agrep (agrep.exe)
+   verwendet. Es sollte im Systemsuchpfad installiert sein. Es kann
+   jederzeit nachträglich installiert werden.
+
+
+   Datenbank eb für EBKuS anlegen:
+
+2. 1 neue Datenbank z.Bsp. "eb" (Name ist freiwählbar) in mysql
+   anlegen. Zuerst den MySQL-Server starten, mysqld.exe aufrufen, dann
+   den Client für den Server starten, mysql.exe, und am Prompt von
+   mysql den SQL-Befehl: "mysqladmin create eb" eingeben. Der Aufruf von
+   mysqlshow.exe zeigt jetzt das Vorhandensein der Datenbank eb an.
+
+
+   Apache: HTTP-Server für EBKuS konfigurieren (Datei: httpd.conf im
+   Apache-Installationsverzeichnis):
+   (Für Apache höher 2.0 liegen uns noch keine Erfahrungen vor!)
+
+3. 1 Script-Alias Verzeichnis des HTTP-Servers für das
+   EBKuS-Verzeichnis ebkus anlegen, damit der WWW-Server weiss, dass
+   er im Verzeichnis ebkus ausführbare cgi-bin Scripte
+   vorfindet. HTTP-Userauthorisierung für das angelegte cgi-bin
+   Verzeichnis ebkus eintragen (siehe die Beispiele in
+   config_apache.txt im doc Verzeichnis). Ohne Userauthorisierung
+   (Passwortabfrage) durch den HTTP-Server kann EBKuS nicht betrieben
+   werden.
+
+4. Die Icons aus dem Verzeichnis icons ins Icons-Verzeichnis des
+   Apache kopieren oder ein entsprechender Alias-Eintrag in der
+   http.conf anlegen.
+
+5. HTTP-Userkennungen mit Passwörtern für jeden Mitarbeiter der
+   Stellen (Anwender von EBKuS) einrichten. 1 neue Userkennung sollte
+   "Admin" heissen (ansonsten muss im Installationsskript von EBKuS in
+   der Datei migrdata.py *vor* der Installation die Userkennung für
+   den Administrator von EBKuS entsprechend abgeändert werden. Oder in
+   der Datei migrdata_minimum.py bzw. migrdata_kreuzrberg.py, je
+   nachdem, welche Sie zu Beginn importieren wollen.)  Dazu das
+   Programm htpasswd.exe im bin-Verzeichnis von Apache verwenden und
+   als Passwortdatei für den WWW-Server z.Bsp. efb_users wählen.
+
+   Kommentar: Die Apache-Konfiguration kann je nach Kenntnissen,
+   Bedarf und Möglichkeiten ergänzt werden  (wie virtueller Server,
+   SSL). Es ist hier nur das Notwendige für die Installation knapp 
+   aufgezählt.
+
+
+   Umgebungsvariablen setzen:
+
+6. a) Autoexec.bat (Für Windows ME und Win 98).
+
+   Die bin-Verzeichnisse der installierten Programme in den Suchpfad
+   der autexec.bat aufnehmen, damit jeweils beim Start des
+   MySQL-Servers oder des Python-Interpreters nicht der ganze Pfad
+   angegeben werden muss, d.h. die folgenden Einträge hinzufügen
+   (Beispiele entsprechend dem bei Ihnen vorhandenen Installationspfad
+   abändern!):
+
+   PATH=C:\Programme\python21;C:\Programme\MySQL\bin;C:\Programme\Apache Group\Apache\bin;
+
+   Umgebungsvariable in der Autoexec.bat für Python eintragen, so dass das
+   Directory, in dem EBKuS ausgepackt wurde, im Suchpfad von Python
+   enthalten ist:
+
+   PYTHONPATH=C:\Programme\python21;C:\Programme\ebkus
+
+   b) EBKuS
+
+   Die Datei ebcgi.py im EBKUS-Verzeichnis ebkus öffnen, in der ersten
+   Zeile den Unix-Aufruf-Pfad für Phyton
+
+   #!/usr/local/bin/python
+
+   durch den Windows-Pfad von Python ersetzen wie z.B: 
+  
+   #!C:\Programme\python21\python.exe -u
+
+   Der Apache-Server braucht den korrekten Pfad von python.exe, um
+   beim Aufruf der dynamischen Seiten den Python-Interpreter zu
+   starten. Das -u steht für unbuffered und muss unbedingt angegeben
+   werden, da sonst in die übertragene Datei Carriage-Return Zeichen
+   hinzugefügt werden, was zu einem Fehler in der Anzeige der
+   Datei im Internetbrowser führt (Abbruch vor dem Ende der Seite).
+
+   Dieselbe Ersetzung in der Start-Datei von EBKuS start.py vornehmen, also:
+
+   #!/usr/local/bin/python
+   durch den Windows-Pfad von Python ersetzen
+   #!C:\Programme\python21\python.exe -u
+
+7. In der Datei config.py im EBKuS-Distributionsverzeichnis ebkus die
+   Umgebungsvariablen entsprechend Ihrer Installation editieren.
+
+   # Hostname des Computers
+   HOST = 'ihr_pc_name.domain.de'       
+   DATABASE_NAME = 'eb'
+   # vollständiger Windows-Pfad fuer EBKuS
+   EBKUSHOME = 'C:\Programme\ebkus'   
+   # vollständiger URL-Pfad fuer EBKuS,
+   EBKUSROOT = "/ebkus/"   # bzw. das Alias: /ebkus/ für C:\Programme\ebkus
+   # vollständiger CGI-BIN Pfad fuer EBKuS  (bzw. Pfad des ScriptAlias)
+   CGI_BIN_PATH = 'C:\Programme\ebkus'
+
+   Die anderen Umgebungsvariablen in config.py können Sie
+   ohne Änderungen übernehmen.
+   Bei mehreren Installationen mit Datenaustausch dazwischen sollte die Anzahl
+   der Aktenverzeichnisse entsprechend erhöht werden.
+
+
+   Datenbanktabellen für EBKuS anlegen und Daten in die Datenbank 
+   importieren:
+
+8. Setup.bat im Verzeichnis ebkus/gen aufrufen: Legt die Tabellen an
+   (vgl. schemadata.py), generiert das API für die Anwendung
+   (vgl. ebapigen.py), liest die mitgelieferten Daten in die Datenbank
+   ein (vgl. migrdata.py) und erstellt die benötigten
+   Daten-Verzeichnisse.  (Vorsicht: Es werden die bei früheren
+   Durchläufen von Setup.bat erzeugten Tabellen mit den darin
+   befindlichen Daten jeweils gelöscht, die Tabellen neu erzeugt und
+   die Daten aus der Datei migrdata.py frisch eingelesen !!!!!)
+
+   Alternativ: Rufen sie statt Setup.bat die folgenden Module in
+   dieser Reihenfolge in der MSDOS-Eingabeaufforderung auf
+   (im Verzeichnis: ebkus/gen):
+
+   python genschema.py	     # Generiert das Datenbankschema
+   python genebapi.py	     # Generiert das API (Anwendungsinterface)
+   python migrate.py	     # Liest die benötigten Datensätze ein.
+
+   Durch Vertauschen der Kommentarzeichens # am Anfang dieser Zeilen
+   im Kopf der Datei migrate.py kann ausgesucht werden, welche Liste
+   von Kategorien und Items bei der Installation in die Datenbank
+   eingelesen werden (alternativ!).
+
+   # from migrdata_kreuzberg import *	     # Demo aus der EFB-Kreuzberg
+   # from migrdata_minimum import *	     # absolutes Minimum,
+					     # incl. Bundesstatistik
+   from migrdata import *		     # Standard
+
+   Um eigene Itemlisten für die Installation zu erstellen, sollte man
+   unbedingt die Listen aus migrdata_minimum.py verwenden und diese
+   erweitern. Die dort eingetragenen Items- und Kategorienkürzel
+   (Code!) werden intern von EBKuS gebraucht (die Namensbezeichnungen
+   der Items und Kategorien hingegen sind änderbar).
+
+
+   Starten:
+
+9.  EBKuS Server starten: an der Eingabeaufforderung im Verzeichnis
+    ebkus aufrufen (die Ausgaben des Servers werden auf die Konsole
+    geschrieben.)
+
+    python start.py
+
+    Der Server kann auch als Hintergrundprozess gestartet werden, mit
+    Ausgabeumlenkung in eine Logdatei.  (Der Datenbankserver mysqld
+    und der apache-Server laufen als Dauerprozess.)
+
+    Alle drei Server (MySQL, Apache, EBKuS (start.py) sollten beim
+    Hochfahren des Systems automatisch gestartet werden, so dass der
+    Anwender auf das Programm EBKuS über den Internetbrowser jederzeit
+    sofort zugreifen kann.
+
+10. WWW-Browser aufrufen. Die konfigurierte Url eingeben mit der Datei
+    menu am Schlus, um das Hauptemenü der Klientenverwaltung im
+    Browser zu erhalten, also in unserem Beispiel:
+    http:/localhost/efb/ebcgi.py/menu
+
+    Für die Erstandmeldung verwenden Sie:
+
+   Anmeldung: Admin	(vgl. Punkt 5)
+   Passwort: ********	(vgl. Punkt 5)
+
+Finito!
+
+
+B. Workstations - Klienten-PC's
+===============================
+
+1. TCP-IP Verbindung zum Server einrichten, auf dem EBKuS installiert ist.
+
+2. WWW-Browser (Netscape oder Internet-Explorer) installieren und
+   obige Url als Bookmark (Favorit) markieren.
+
+3. Acrobat Reader installieren (siehe Infos in config_pdf.txt).
+
+
+C. Konfiguration von EBKuS nach erfolgreichem Start des EBKuS-Servers
+=====================================================================
+
+Die Url für EBKuS aufrufen und sich als Benutzer "Admin" im
+Internet-Explorer oder Netscape anmelden:
+
+1. Eintragen der Stellennamen.
+   
+   Im Menü "Administration" in der Rubrik "Kategorien" den Link "Alle"
+   anklicken; in die Tabelle "Dienststelle" gehen und in der Spalte
+   Code den Link -A- bei der Stelle EFB-A anklicken. Im erhaltenen
+   Formular den Namen "EFB-A" durch den Ihrer Beratungsstelle
+   ersetzen und "Speichern". Alle weitern Stellen eintragen, welche
+   auf dieser Datenbank künftig arbeiten sollen.
+
+2. Eintragen des Regierungsbezirkes und des Kreises für die
+   Bundesstatistik.
+
+   Die Tabellen Regierungsbezirk und Kreis auswählen und den
+   entsprechenden Regierungsbezirke und Kreise für Ihre Dienststelle(n)
+   hinzufügen (Info beim Statistischen Landesamt erfragen). Beim Code
+   die Zahlen für den Regierungsbezirke und Kreise eintragen!! Die
+   Reihenfolge so ändern, dass die neuen Einträge an erster Stelle
+   stehen (sie werden damit in der Auswahlliste beim Eingabeformular
+   zuerst angezeigt), und die unpassenden Einträge auf "off" setzen.
+
+3. Mitarbeiter eintragen.
+   
+   Als Benutzer "Admin" anmelden, im Menü "Administration" den Punkt
+   Mitarbeiter "Neueintrag" wählen und die Mitarbeiter eintragen.
+   Achtung: Im Formularfeld: "Benutzer" muss jeweils die Userkennung
+   aus der HTTP-Authorisierung (vgl. Punkt 5 bei A. Server) identisch
+   übernommen werden!
+
+   Für die Berater/Therapeuten und die Verwaltungsfachkraft die
+   Benutzerrechte (Kürzel: "bearb" oder "verw" oder "admin" )
+   auswählen.  
+
+4. Bundesjugendhilfestatistik. Unbedingt Lesen!
+
+   Items, welche zur Bundesjugendhilfestatistik gehören, auf keinen
+   Fall verändern oder gar neue hinzufügen (ausser der Items
+   Regierungsbezirk, Kreis, Gemeinde, Gemeindeteil anhand der Infos
+   des Statistischen Landesamtes). Die Änderungsmöglichkeit von Items
+   haben wir angeboten, damit der Anwender kleinere Anpassungen der
+   gesetzlichen Bundesstatistik selbst vornehmen kann, wie diejenige im
+   letzten Jahr z.B. als sich die Beschreibung des Items Sucht in der
+   Bundesstatistik änderte.
+
+5. Fachstatistik.
+   
+   Im Menü "Adminstration" in der Rubrik "Kategorien" den Link
+   "Fachstatistik" anklicken.
+
+   Items der Kategorien, welche für die Fachstatistik verwandt werden,
+   entsprechend den Wünschen der regionalen Jugendhilfeplanung und
+   fachlichen Bedürfnissen ergänzen bzw. präzisieren (wie z.B. Region,
+   Sozialraum 1)
+
+--------------
+
+Jürg Huber, 
+juerg@pantau.in-berlin.de
+http://pantau.in-berlin.de
+
+
+
+
+
+
+
+

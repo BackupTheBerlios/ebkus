@@ -1,0 +1,61 @@
+MySQL-Zugangsberechtigung
+=========================
+
+Kopieren Sie die zwei untenstehenden SQL-Insert-Anweisungen in eine
+Datei. Tragen Sie im ersten Feld statt pantau den passenden Hostnamen
+ein und im zweiten Feld den User, in dessem Homeverzeichnis EBKuS
+installiert ist oder werden soll.
+
+Geben Sie am Shell-Prompt als User root ein: 
+mysql mysql < datei 
+
+Anschliessend den MySQL-Server neu starten!!
+
+INSERT INTO user VALUES ('localhost','ebkus','','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y');
+INSERT INTO user VALUES ('pantau','ebkus','','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y');
+
+Prüfen Sie, bevor Sie das Setup von EBKuS starten, ob der User ebkus
+auf die eingerichtete Datenbank eb Rechte hat, mit den Programmen:
+mysqlshow und mysql.
+
+Ansonsten fügen Sie noch die nächsten beiden Zeilen in die Tabelle db
+der Datenbank mysql (die DB mysql legt die Zugriffsrechte fest!)
+ein. Ersetzen Sie eb durch den gewählten Datenbanknamen für EBKuS.
+
+INSERT INTO db VALUES ('%','eb','%','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y');
+INSERT INTO db VALUES ('%','eb\\_%','%','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y');
+
+
+MySQLmodule und Python
+======================
+
+In der EBKuS-Distribution ist ein Tar-Archive MySQLdb von Andy
+Dustman, welches das unbedingt notwendig Python-Modul für die
+Schnittstelle zum SQL-Server MySQL enthält. Für die Installation (und
+Lizenz) lesen Sie bitte die dortigen Installationshinweise. MySQLdb
+entspricht der aktuellen Spezifikation für SQL-Datenbanken
+(DB-API-2.0) in Python. Entwickelt wurde EBKuS mit dem älteren
+MySQLmodule für Python, welches auch weiterhin verwendet werden kann.
+
+Testen Sie vor dem Start von EBKuS die korrekte Installation der
+Module, indem Sie an der Kommandozeile "python" eingeben und dann am
+Python-Prompt ein "import MySQLdb" eingeben bzw. "import MySQL",
+je nachdem, welches der beiden Module (oder auch beide?) Sie
+installiert haben.  Anschliessend geben Sie am Python-Prompt "dir()"
+ein und sie erhalten die geladenen Module, MySQLdb oder MySQL
+angezeigt.
+
+Nach der erfolgreichen Installation tragen Sie in der Datei config.py
+bei DATABASE_TYPE Ihr installiertes bzw. favorisiertes Modul ein, über
+das EBKuS mit dem MySQL-Server kommunizieren soll (siehe die schon
+vorhandenen Einträge in config.py)
+
+--------------
+Jürg Huber
+juerg@pantau.in-berlin.de
+http://pantau.in-berlin.de
+
+
+
+
+
