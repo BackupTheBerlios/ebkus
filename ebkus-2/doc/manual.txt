@@ -10,8 +10,8 @@ Klientenverwaltung, Aktendokumentation, Gruppenverwaltung und Statistik für Erzi
 :Autor: Albrecht Schmiedel (atms@alibi.in-berlin.de)
 :Homepage: http://ebkus.berlios.de/index.html
 :Mailing-Liste: ebkus-support@lists.berlios.de
-:Revision: $Revision: 1.2 $
-:Date: $Date: 2004/10/16 17:14:40 $
+:Revision: $Revision: 1.3 $
+:Date: $Date: 2004/10/17 11:44:21 $
 
 .. |dist_url| replace:: ftp://ftp.bke.de/pub/ebkus/ebkus-3.2/ebkus-3.2-dist.zip
 .. |src_url_berlios| replace:: http://ebkus.berlios.de/ebkus/ebkus-3.2-src.zip
@@ -27,18 +27,13 @@ Klientenverwaltung, Aktendokumentation, Gruppenverwaltung und Statistik für Erzi
 
 .. contents::
 
-..
 .. include:: einleitung.txt
 
-..
 .. include:: anwendungsbeschreibung.txt
 
-..
 .. include:: bedienungsanleitung.txt
 
-..
 .. include:: administration.txt
 
-..
 .. include:: installation.txt
  
