@@ -1,0 +1,176 @@
+# coding: latin-1
+
+"""Module für den Im- und Export aus der Datenbank."""
+
+import string, time, os
+
+
+from ebkus.app import Request
+from ebkus.config import config
+from ebkus.app.ebapi import Code, JugendhilfestatistikList, ExportprotokollList, ImportprotokollList, today, cc, getDBSite, EE
+from ebkus.app_surface.standard_templates import *
+from ebkus.app_surface.datenaustausch_templates import *
+
+
+EXPORT_DIR = os.path.join('daten', 'export')
+EXPORT_DIR_URL = 'daten/export'
+
+class formabfrjghexport(Request.Request):
+    """Auswahlformular für den Export der Jugendhilfestatistik."""
+    
+    permissions = Request.ADMIN_PERM
+    
+    def processForm(self, REQUEST, RESPONSE):
+        mitarbeiterliste = self.getMitarbeiterliste()
+        user = self.user
+        site = Code(cc('dbsite', '%s' % getDBSite()))
+        
+        res = []
+        bestaetigung = {'titel':("Bundesjugendhilfestatistik: Exportdatei erstellen der %s" % site['name']),
+                        'legende':'Best&auml;tigung des Exportvorgangs',
+                        'zeile':'Bitte das Exportjahr eingeben und mit Ok best&auml;tigen!',
+                        'jahr' : '%s' % (today().year),
+                        'dest_url':'menu'}
+        res.append(bestaetigung_t %(bestaetigung))
+        return string.join(res, '')
+        
+        
+class jghexportfeedback(Request.Request):
+    """Aufruf zum Export der Jugendhilfestatistik und Feedback."""
+    
+    permissions = Request.ADMIN_PERM
+    
+    def processForm(self, REQUEST, RESPONSE):
+        import os
+        
+        mitarbeiterliste = self.getMitarbeiterliste()
+        user = self.user
+        
+        if self.form.has_key('jahr'):
+            jahr = self.form.get('jahr')
+        else:
+            self.last_error_message = "Kein Jahr erhalten"
+            return self.EBKuSError(REQUEST, RESPONSE)
+            
+        jghlist = JugendhilfestatistikList(where = 'ey = %s' % jahr)
+        if len(jghlist) < 1:
+            self.last_error_message = 'Keine Bundesstatistik f&uuml;r %s vorhanden' % jahr
+            return self.EBKuSError(REQUEST, RESPONSE)
+        try:
+            log_filename = os.path.join(config.INSTANCE_HOME, EXPORT_DIR, 'jgh_log_%s.txt' % jahr)
+            log_filename_web = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, 'jgh_log_%s.txt' % jahr)
+            # TBD: jghexport importieren statt als script!
+            os.system('python %s/ebkus/app/jghexport.py %s ' % (config.INSTANCE_HOME, jahr) + '>%s' % log_filename)
+            
+            # msg 2002-03-04 Anpassung fuer Anzeige per webinterface
+            # es existieren nun die dateien in doppelter ausführung
+            # einmal zum erhalt in dem verzeichnis /ebkus/daten/export
+            # und zum andren im webserver verzeichnis zur anzeige im webbrowser
+            
+            # Die Pfade muessen noch variabel gemacht werden. Juerg, 9.1.03
+            f = open(log_filename, 'r')
+            f_web = open(log_filename_web, 'w+')
+            f_web.write(f.read())
+            
+        except Exception, e:
+            raise EE("Fehler beim Exportieren: %s" % str(e) ) 
+            
+        site = Code(cc('dbsite', '%s' % getDBSite()))
+        
+        res = []
+        res.append(head_normal_ohne_help_t %("Exportdatei der %s" % site['name'] + " f&uuml;r das Jahr %s " % jahr))
+
+        ausgabe = { 'ebkushome' : '/ebkus/%s/' % config.INSTANCE_NAME,
+                    'exportdir' : EXPORT_DIR_URL, 'jahr' : jahr }
+        res.append(jghexportfeedback_t % ausgabe)
+        return string.join(res, '')
+        
+        
+class jghexportlist(Request.Request):
+    """Listet die exportierten Jugendhilfestatistiken."""
+    
+    permissions = Request.ADMIN_PERM
+    
+    def processForm(self, REQUEST, RESPONSE):
+        import os
+        mitarbeiterliste = self.getMitarbeiterliste()
+        user = self.user
+        site = Code(cc('dbsite', '%s' % getDBSite()))
+        dateiliste = os.listdir(os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR) )
+        dateiliste.sort()
+        
+        res = []
+        res.append(head_normal_ohne_help_t %("Bundesjugendhilfestatistik: Liste der Exportdateien der %s" % site['name']))
+        res.append(thjghexportliste_t)
+        for f in dateiliste:
+            if f[0:4] == 'jgh_':
+                res.append(jghexportliste_t % ('/ebkus/%s/' % config.INSTANCE_NAME, EXPORT_DIR_URL, f, f))
+        res.append(jghexportliste_ende_t)
+        return string.join(res, '')
+        
+        
+class formabfrdbexport(Request.Request):
+    """Auswahlformular für den Ex- bzw. Import von Daten."""
+    
+    permissions = Request.ADMIN_PERM
+    
+    def processForm(self, REQUEST, RESPONSE):
+        mitarbeiterliste = self.getMitarbeiterliste()
+        user = self.user
+        site = Code(cc('dbsite', '%s' % getDBSite() ) )
+        
+        res = []
+        res.append(head_normal_ohne_help_t %('Stellenabgleich: Ex- und Import von Daten in die Datenbank der ' + site['name']))
+        res.append(formexport_t)
+        return string.join(res, '')
+        
+        
+class stellenabgleich(Request.Request):
+    """Aufruf der Datei für den Ex- bzw. Import von Daten."""
+    
+    permissions = Request.ADMIN_PERM
+    
+    def processForm(self, REQUEST, RESPONSE):
+        import os
+        mitarbeiterliste = self.getMitarbeiterliste()
+        user = self.user
+        site = Code(cc('dbsite', '%s' % getDBSite()))
+        if self.form.has_key('dbexport'):
+            arg = self.form.get('dbexport')
+        else:
+            self.last_error_message = "Kein Jahr erhalten"
+            return self.EBKuSError(REQUEST, RESPONSE)
+            
+        if arg == 'i' or arg == 'e':
+            try:
+                # TBD: dbexport importieren!
+                os.system('python %s/ebkus/app/dbexport.py -%s %s ' % (config.INSTANCE_HOME,
+                                                   arg, self.mitarbeiter['ben']))
+            except Exception, e:
+                raise EE("Fehler beim Exportieren: %s") % str(e)
+        exportliste = ExportprotokollList(where = 'id > 0',
+                                          order = 'dbsite,zeit desc')
+        importliste = ImportprotokollList(where = 'id > 0',
+                                          order = 'dbsite,zeit desc')
+        
+        res = []
+        res.append(head_normal_ohne_help_t %("Stellenabgleich: Protokoll zum Ex- und Import von Daten in die Datenbank der %s" % site['name']))
+        res.append(thexport_start_t)
+        if exportliste:
+            res.append(thexport_t % 'Export - Protokolldaten')
+            for e in exportliste:
+                datum = time.strftime('%d.%m.%y / %H:%M:%S', time.localtime(e['zeit']))
+                e['datum'] = datum
+                res.append(export_t % e)
+                del e['datum']
+        if importliste:
+            res.append(thexport_t % 'Import - Protokolldaten')
+            for i in importliste:
+                datum = time.strftime('%d.%m.%y / %H:%M:%S', time.localtime(i['zeit']))
+                i['datum'] = datum
+                res.append(export_t % i)
+                del i['datum']
+        res.append(thexport_ende_t)
+        return string.join(res, '')
+        
+        

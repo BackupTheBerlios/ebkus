@@ -1,0 +1,313 @@
+1. perspektivisch:
+
+- Transaktionen verwenden (hauptsächlich in app/ebupd.py)
+- evt. auf mod_python umstellen
+- auf Apache 2 umstellen
+- online-Hilfe mit dem Handbuch integrieren, Ziel: nur einen
+  Hilfetext zu haben
+- Export der Fachstatistik und der Jugendhilfestatistik
+
+2. Aktuelle Aufgaben fuer Version 3.2
+-------------------------------------
+
+Fri Jan 16 18:39:16 2004
+
+DONE - leichtere Installation auf windows:
+     - nur für win-xp, win2000, win-nt
+     - automatisches download aller erforderlichen Komponenten,
+       wenn man den tarball/zip runterlädt.
+     - CD, wo alle nötigen Komponenten drauf sind. Diese CD
+       wird erstellt mit einem Skript aus dem tarball/zip.
+     - Anleitung, wie jede Komponente installiert werden sollte
+     - ein Skript, dass eine lauffähige Version erzeugt
+
+
+DONE - Es sollte eine Variante geben, in der Apache vollautomatisch
+       konfiguriert wird.
+     
+DONE - migrate/Initialisierung der DB neu organisieren.
+
+
+DONE - Datenbank-Passwort
+
+
+-----------------------------------------
+
+DONE - initial DB: fest anbieten, mit der Möglichkeit zur
+       Konfiguration 
+
+DONE - getrennte URLs für demo- und produktionssystem?
+
+-------------------------------------------
+
+Initialisierung der Datenbank
+=============================
+DONE - berliner_version: Strassenkatalog ja oder nein
+
+DONE - Ortsspezifische Codes:
+     - rbz;Regierungsbezirk
+     - kr;Kreis
+     - wohnbez;Wohnbezirksnr des Klienten (wird wahrscheinlich nicht
+       benötigt, wenn nicht der Berliner Strkat verwendet wird.)
+
+DONE - datenbank_initialisieren:
+       berliner_version ja: migrdata_berlin
+       berliner_version ja: migrdata_berlin - ortspezifische codes
+
+datenbank_initialisieren
+DONE - ohne Parameter: Verhalten hängt von config ab.
+       falls Instanz demo heisst, demo_berlin.sql
+       falls Instanz demo heisst, demo_standard.sql
+       falls berliner_version:    berlin.sql
+			sonst     standard.sql
+
+DONE ebkus.ico: Wie wird das installiert?
+----------------
+DONE Pfade vereinheitlichen auf Windows: / \ durcheinander
+----------------
+DONE solange bei Instanzen noch Daten liegen, sollte uninstall
+mislingen. ---> Handarbeit, Daten sichern
+uninstall sollte auch die Datenbank sichern.
+---------------
+DONE instanz uninstall: Einträge in ebkus_httpd_conf entfernen
+DONE Datenbank sichern und entfernen
+-------------------
+DONE die ganzen Versions-mismatche beseitigen! (Warnungen ...)
+DONE regex durch re ersetzenm regsub durch re.sub
+--------------------
+DONE DB Passworte in log-datei?
+--------------------
+DONE Version beim Start in die Log-Datei
+-------------------
+DONE sollen EE(...) Exceptions als INFO oder als ERROR geloggt werden?
+ jetzt: als ERROR
+---------------------
+DONE encoding declarations in source files
+-----------------
+DONE NEIN Fehlermeldung im Log-File bei falscher Anmeldung?
+     Nein, ist in der protokoll-Tabelle
+-----------------
+DONE Alles SQL loggen im debug mode
+-----------------
+DONE 'Verzeichnis' durch 'Ordner' ersetzen?
+  NEIN, aber irgendwo sagen, dass Ordner und Verzeichnis synonym
+  sind.
+-----------------
+Alles, was mit Site zu tun hat entfernen?
+DONE: aus der config
+DONE: TODO: aus dem Interface
+-----------------
+DONE efbchart: Dateien durch direkten Stream ersetzen
+----------------
+DONE Fest verdrahten ??:
+- Name der Konfigdatei ebkus.conf
+- Ort der Konfigdatei in ebkus_home
+- Name von EBKUS_HOME: ebkus
+- Verzeichnisse: charts protololle, akten, daten,
+---------------
+DONE Installieren von Readonly-Medium? Wohin ebkus.conf schreiben?
+--------------
+DONE configure.py ebkus sollte Instanzen mitmachen --> symmetr. zu
+uninstall
+--------------
+DONE: abgestellt.
+http.conf.template: Listen auf port 80 ausstellen? Server
+reagiert nur noch auf EBKuS. Man kann aber Sachen nach
+ebkus/htdocs/ebkus stellen
+-------------
+
+Mon May 10 20:40:03 2004
+------------------------
+Welche dicken Punkte gibt es noch?
+
+DONE - ALBRECHT sessions und Protokollierung aufräumen
+
+DONE - ALBRECHT: initiale SQL-Datenbanken fuer die verschiedenen Varianten
+  erstellen
+
+DONE wqw- demo-daten vervollstänigen
+- merkmale_minimal erstellen
+- merkmale_berlin und standard überprüfen
+  (alles steht in $EBKUS_HOME/sql)
+
+DONE - JUERG: Export und Sites aus der grafischen  Oberfläche verbannen
+
+DONE - ALBRECHT: sql in debug mode loggen
+
+DONE: ALBRECHT: charts ohne Umweg über Platte ausgeben, in der session cachen
+  zu kompliziert, es gibt gar kein session-Objekt.
+
+CANCELLED: NICHT DRINGEND akten in die Datenbank
+
+DONE ALBRECHT: binary gdchart für linux zum downloaden? 
+  (Ich musste es selber kompilieren.)
+  MSG hatte auch ein binary dabei
+
+- DONE JUERG: schickt mir Beispielindexseit
+
+- ALBRECHT macht die indexseite
+  admin name/telefon/email in Fehlermeldungen,
+  unsere telefon/email 
+  admin Namen mithinzunehmen!!
+  mailing liste angeben für feedback
+  in der Hilfe? in der Doku zum Ausdrucken?
+  in die Indexseite?
+
+  link auf EBKUS-Homepage: www.ebkus.org --> berlios
+  Verweis auf Mailing liste
+ 
+  Verweis auf lokalen Ansprechpartner
+  index.html fuer Instanz, wie soll die aussehen?
+
+DONE - ALBRECHT: Fehler loggen: EBUpdateError nicht in ERROR log, allenfalls
+  debug 
+
+DONE - eigenes Fenster für zu druckendes Aktenvorblatt?
+
+DONE - passworte: gehts, dass man wenigstens das root passwort
+  interaktiv abfragen.
+  oder man nimmt das passwort aus ebkus.conf raus, nachdem alles
+  installiert ist.
+
+DONE - install.log
+
+DONE - für create_cd.py noch die übrigen Komponenten anlegen, mit URLs
+  etc.
+
+DONE - EBKuS Version in den Namen der SQL-Dumps kodieren!
+
+DONE - Script zur Erstellung der Distributions-CD
+
+CANCELLED - Entschuldigung für das Chaos im Code:
+  es waren Lehrlinge am Werk, es wird nach und nach aufgeräumt
+
+DONE - klientenkarte.py und neu_klientenkarte.py mit Jürg zusammen 
+       durchgehen. Ist die Adressüberprüfung notwendig?
+
+-------------
+Thu Jul  1 17:38:58 2004
+
+-------------
+Thu Jul  29 17:38:58 2004
+
+DONE - Datei LICENSE anlegen mit Hinweis/Link auf GPL
+DONE - Anleitung/Hilfe fuer Anwendungsbetreuer (Einrichten der
+   Anwendung)
+- konsequent Anwendungsbetreuer statt Administrator?
+DONE - README fuer ebkus/gen
+CANCELLED - Benutzerhandbuch (Source u. PDF) in CVS importieren (cvs ... -kb ...)
+DONE - CHANGES in CHANGES.txt umbenennen, Entwickler anfuehren
+DONE - README.txt schreiben 
+DONE - TODO: Zwei Teile (1. Perspektiven, 2. Aktuelle Aufgaben)
+DONE - BUGS.txt loeschen
+DONE - CHANGES updaten
+DONE - Modifikation der MSG Anleitung
+DONE - dbexport soll raus, auch aus dem Interface
+DONE - msg erwähnen in credits
+CANCELLED - In die Doku: wenn Dienste in der Systemsteuerung 'deaktiviert'
+  sind, einen Neustart durchführen, dann sind sie weg.
+DONE - Datenbank-Passworte dokumentieren in der Konfigurationsanleitung
+DONE - README, Doku, CHANGES, LIZENZ, das ganze drum herum
+  ALBRECHT schreibt Vorlage.
+  JUERG arbeitet in Doku ein.
+DONE - JUERG beschreibt mir das Problem. Sortierproblem aus Treptow??
+  Sortieren der Beratungen bei Verwaltungsleuten (abfr1)
+- TESTEN (u.a. - endtags syntax checken, HTML-Validator)
+DONE - Version auf die Menuseite, in die Hilfe
+DONE - Textdateien auf DOS umstellen oder Hinweis ins README?
+DONE - JUERG: logo updaten
+
+Mon Aug 30 17:14:08 2004
+
+DONE - doku downloaden wenn rst2html etc nicht installiert ist
+DONE - Anleitung zum desinstallieren der Dienste ohne install.py
+  srvstart.exe remove <Dienstname> ist alles was man braucht.
+
+
+EBKuS Website auf Berlios
+-------------------------
+
+- Das sollte überarbeitet werden:
+  (email-Addressen von msg, kobit raus)
+  http://sourcelines.berlios.de/solutions.php?solu_id=21
+- Bekanntmachung der neuen Version auf der Webseite und auf der
+  Mailingliste. 
+- zum Download anbieten:
+  - Distribution
+    - http://ebkus.berlios.de/ebkus/ebkus-3.2-src.zip
+    - http://ebkus.berlios.de/ebkus/ebkus-3.2-src.tar.gz
+  - Handbuch HTML/PDF
+    - ebkus-3.2-handbuch.html
+    - figures
+    - ebkus-3.2-handbuch.pdf
+
+CANCELLED  - vielleicht auch die ganze Software, die jetzt auf
+    alibi.in-berlin steht
+
+- Hauptseite: email, liste, download, demo
+
+CANCELLED - Bezugsperson: man sieht die Notiz nicht bei Ansicht
+
+DONE - Warum ist die Fachstatistik nicht korrigierbar? Fehler!
+
+DONE - Neue Kategorie akzeptiert schon vorhandenen Code - kann man
+  nicht mehr ändern. Fehler!
+
+Mit Jürg besprechen:
+
+CANCELLED - XP-Test Eva??
+DONE - Webseite: Verzeichnis ebkus-3.2, darin EBKuS_Handbuch.pdf etc?
+DONE - particle@gmx.de geschrieben?
+
+DONE - mein Name als Beispiel in der Demo?
+CANCELLED - Index mit Login zusammenwerfen?
+- Handbuch und Software nach berlios
+DONE - demodaten neu erzeugen
+
+- Dokumentieren, wie das Einloggen in der Demoversion funktioniert.
+DONE - Indexseite (linker Rand einstellen, body oder table Tag)
+DONE - demo nimmt demo_berlin.sql fuer die DB-Initialisierung wenn demo_standard.sql
+  geloescht ist. 
+DONE - demo bringt Berliner Strassenformular obwohl Berliner Version auf False
+  steht. 
+- Hinweis auf Teilstrassenkatalog in Demoversion im Handbuch 
+DONE - Handbuch: Servicepack 6 fuer WinNT hinweisen.
+DONE - Fachstatistik fuer abgeschlossenen Fall aenderbar machen
+  Auswahl abschaffen:
+DONE  - Statistik für einen Fall wird über
+    Hauptmenü/Ändern/*statistik mit Auswahl nur für aktuelle
+    Fälle
+DONE  - über Klientenkarte für alle Fälle zugänglich gemacht
+
+- Sessions sind manchmal nach langer Zeit noch gültig. Unklar,
+  warum. Wenn man testweise die SESSION_TIME auf 1 stellt, geht
+  alles, d.h. nach einer Minute muss man sich wieder einloggen
+
+JA - sind Fach- und Bundesstatistiken von gelöschten Akten
+  tatsächlich zugänglich? Das wird im Kapitel Aufbewahrungsfrist
+  von Akten versprochen.
+
+- demodaten: zwei verwaltungskräfte?
+
+
+- Struktur ebkus-3.2:
+  win32/              # nur bke
+  linux/              # nur bke
+  ebkus-3.2-dist.zip  # nur bke
+  ebkus-3.2-src.zip
+  ebkus-3.2-src.tar.gz
+  README.txt
+  ebkus-3.2-doc.zip
+  EBKuS_Handbuch.html # nur berlios
+  EBKuS_Handbuch.pdf  # nur berlios
+  figures/            # nur berlios
+  
+
+DONE - Fehler beim Löschen, einloggen als verw.
+DONE - Meldungsstruktur beim Löschen verzockt. Einfach melden, wieviel
+  gelöscht wurde.
+
+DONE - Kann man sich mehrfach anmelden auf verschiedenen Browsern? 
+  Verhindern! Nur eine session / user.
+
+
