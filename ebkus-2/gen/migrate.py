@@ -125,9 +125,9 @@ def parse_tab_id(str):
     codes.append(l)
   return codes
 
-
 def insert_kategorien():
   kl = KategorieList(where = '')
+  print kl
   if kl:
     print 'Kategorien schon definiert, werden gelöscht'
     kl.deleteall()

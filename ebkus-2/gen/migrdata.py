@@ -367,7 +367,7 @@ Superv;Supervision;grtyp
 sonstige;sonstige;grtyp
 1;Nein;gfall
 2;Ja;gfall
-A;DBSite A;dbsite;1;30000
+A;DBSit A;dbsite;1;300000
 """
 
 bereichs_kategorien_str = "fska fskat gsa dbsite"

@@ -224,7 +224,7 @@ grtyp, INT, Gruppentyp, k, grtyp
 stz, INT, Dienststelle, k, stzei
 zeit, INT, Änderungszeit, p,
 
-table, fallgruppe, /fall_id.gruppe_id/gruppe_id.fall_id,\
+table, fallgruppe, fall_id.gruppe_id/gruppe_id.fall_id,\
        Zuordnung Fall-Gruppe, FallGruppe
 id, INT, id, s
 fall_id, INT, Fallid, f, fall, gruppen
@@ -237,7 +237,7 @@ em, INT, Monat, p,
 ey, INT, Jahr, p,
 zeit, INT, Änderungszeit, p,
 
-table, bezugspersongruppe, /bezugsp_id.gruppe_id/gruppe_id.bezugsp_id,\
+table, bezugspersongruppe, bezugsp_id.gruppe_id/gruppe_id.bezugsp_id,\
        Zuordnung Bezugsperson-Gruppe, BezugspersonGruppe
 id, INT, id, s
 bezugsp_id, INT, Bezugspersonid, f, bezugsperson, gruppen
