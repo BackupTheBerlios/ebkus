@@ -61,13 +61,13 @@ def check_exit(return_code):
 
 if __name__ == '__main__':
     import init
-    zip = merkmale = sql = strassenkatalog = demodaten = standard = None
+    zip = merkmale = sql = strassenkatalog = demodaten = standard = nodump = None
     try:
         optlist, args = getopt.getopt(sys.argv[1:],
                                       'h',
                                       ['standard', 'merkmale=', 'sql=',
                                        'zip=',
-                                       'strassenkatalog=', 'demodaten', 'help'])
+                                       'strassenkatalog=', 'demodaten', 'nodump', 'help'])
     except getopt.GetoptError, m:
         print str(m)
         print '---------'
@@ -86,6 +86,8 @@ if __name__ == '__main__':
             strassenkatalog = value
         if option in ('--demodaten',):
             demodaten = True
+        if option in ('--nodump',):
+            nodump = True
         if option in ('--help', '-h'):
             usage()
 
@@ -121,7 +123,10 @@ if __name__ == '__main__':
     installer = InstallFromInstance(config)
     installer.init()
     instance = installer.ebkus[config.INSTANCE_NAME]
-    res = instance.dump_database(os.getcwd())
+    if nodump:
+        res = True
+    else:
+        res = instance.dump_database(os.getcwd())
     if not res:
         sys.exit(1)
     if zip:
