@@ -107,14 +107,14 @@ A. SERVER
    Apache-Installationsverzeichnis):
    (Für Apache höher 2.0 liegen uns noch keine Erfahrungen vor!)
 
-3. 1 Script-Alias Verzeichnis des HTTP-Servers für das
-   EBKuS-Verzeichnis ebkus anlegen, damit der WWW-Server weiss, dass
-   er im Verzeichnis ebkus ausführbare cgi-bin Scripte
-   vorfindet. HTTP-Userauthorisierung für das angelegte cgi-bin
-   Verzeichnis ebkus eintragen (siehe die Beispiele in
-   config_apache.txt im doc Verzeichnis). Ohne Userauthorisierung
-   (Passwortabfrage) durch den HTTP-Server kann EBKuS nicht betrieben
-   werden.
+3. Ein Alias für C:\Programme\ebkus in der Konfigurationsdatei des
+   Apache (httpd.conf) anlegen, wenn die Anwendung ausserhalb des
+   Default-Dokumentenpfades vom Apache installiert wurde. Bei den
+   Options für ebkus ExecCGI eintragen.  HTTP-Userauthorisierung für
+   das EBKuS-Verzeichnis konfigurieren (siehe die Beispiele in
+   config_apache.txt im Verzeichnis doc/win32). Ohne
+   Userauthorisierung (Passwortabfrage) durch den HTTP-Server kann
+   EBKuS nicht betrieben werden.
 
 4. Die Icons aus dem Verzeichnis icons ins Icons-Verzeichnis des
    Apache kopieren oder ein entsprechender Alias-Eintrag in der
@@ -152,8 +152,10 @@ A. SERVER
    Umgebungsvariable in der Autoexec.bat für Python eintragen, so dass das
    Directory, in dem EBKuS ausgepackt wurde, im Suchpfad von Python
    enthalten ist:
-
    PYTHONPATH=C:\Programme\python21;C:\Programme\ebkus
+
+   Unter Win2000 sollten die Suchpfade in der Systemsteuerung (System,
+   erweitert) eingetragen werden.
 
    b) EBKuS
 
