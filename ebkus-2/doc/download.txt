@@ -4,10 +4,11 @@ Download-Hinweise:
 =========
 
 Über die jeweils aktuellste Fassung von EBKuS und Downloadmöglichkeit
-informiert:
-http://pantau.in-berlin.de
+informieren:  http://pantau.in-berlin.de und http://EBKuS.berlios.de
 
-Download mit ftp: pantau.in-berlin.de   (im Verzeichnis: pub/ebkus)
+Für Entwickler: http://developer.berlios.de/projects/ebkus
+
+Quellcode und CVS: http://cvs.berlios.de/cgi-bin/cvsweb.cgi/?cvsroot=ebkus
 
 Weitere Infos: juerg@pantau.in-berlin.de
 
@@ -35,8 +36,8 @@ http://dustman.net/andy/python/MySQLdb/
 Windows:
 http://home.t-online.de/home/err666/
 
-4. HTTPD-Apache
-===============
+4. HTTP-Server-Apache
+=====================
 
 http:/www.apache.org
 
@@ -55,14 +56,14 @@ http://rpmfind.net/linux/RPM/contrib/libc6/i386/acroread-4.05-3.i386.html
 ==============
 
 Das PDF-Package reportlab.tgz bzw. reportlab.zip muss im Verzeichnis
-/eb/reportlab vorhanden sein, sollen Aktendokumente im PDF-Format
+/ebkus/reportlab vorhanden sein, sollen Aktendokumente im PDF-Format
 aufbewahrt und zum Lesen ausgegeben werden.
 
 Es ist im Internet kostenlos zu beziehen unter:
 
 http://www.reportlab.com/download.html
 
-Das Archiv wird in das Verzeichnis /eb/reportlab ausgepackt.
+Das Archiv wird in das Verzeichnis /ebkus/reportlab ausgepackt.
 
 
 7. ICD-10 - DIMDI

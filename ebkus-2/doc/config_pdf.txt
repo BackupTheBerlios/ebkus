@@ -5,13 +5,13 @@ Installationshinweise zur Verwendung der PDF-Formate in EBKuS
 =========
 
 Das PDF-Package reportlab.tgz bzw. reportlab.zip muss im Verzeichnis
-/eb/reportlab vorhanden sein, sollen die Aktendokumente im PDF-Format
+/ebkus/reportlab vorhanden sein, sollen die Aktendokumente im PDF-Format
 zum Lesen ausgegeben werden.
 
 Es ist im Internet kostenlos zu beziehen unter:
 http://www.reportlab.com/download.html
 
-Das Archiv wird in das Verzeichnis /eb/reportlab ausgepackt.
+Das Archiv wird in das Verzeichnis /ebkus/reportlab ausgepackt.
 
 
 2. Klient-PC
