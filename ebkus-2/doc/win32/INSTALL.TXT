@@ -257,7 +257,7 @@ A. SERVER
 10. WWW-Browser aufrufen. Die konfigurierte Url eingeben mit der Datei
     menu am Schlus, um das Hauptemenü der Klientenverwaltung im
     Browser zu erhalten, also in unserem Beispiel:
-    http:/localhost/efb/ebcgi.py/menu
+    http://localhost/efb/ebcgi.py/menu
 
     Für die Erstandmeldung verwenden Sie:
 
