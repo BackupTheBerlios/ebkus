@@ -232,14 +232,8 @@ EBKuS Website auf Berlios
   http://sourcelines.berlios.de/solutions.php?solu_id=21
 - Bekanntmachung der neuen Version auf der Webseite und auf der
   Mailingliste. 
-- zum Download anbieten:
-  - Distribution
-    - http://ebkus.berlios.de/ebkus/ebkus-3.2-src.zip
-    - http://ebkus.berlios.de/ebkus/ebkus-3.2-src.tar.gz
-  - Handbuch HTML/PDF
-    - ebkus-3.2-handbuch.html
-    - figures
-    - ebkus-3.2-handbuch.pdf
+
+- Sachen zum Download anbieten
 
 CANCELLED  - vielleicht auch die ganze Software, die jetzt auf
     alibi.in-berlin steht
@@ -279,7 +273,7 @@ DONE  - Statistik für einen Fall wird über
     Fälle
 DONE  - über Klientenkarte für alle Fälle zugänglich gemacht
 
-- Sessions sind manchmal nach langer Zeit noch gültig. Unklar,
+WEITER BEOBACHTEN - Sessions sind manchmal nach langer Zeit noch gültig. Unklar,
   warum. Wenn man testweise die SESSION_TIME auf 1 stellt, geht
   alles, d.h. nach einer Minute muss man sich wieder einloggen
 
@@ -287,7 +281,7 @@ JA - sind Fach- und Bundesstatistiken von gelöschten Akten
   tatsächlich zugänglich? Das wird im Kapitel Aufbewahrungsfrist
   von Akten versprochen.
 
-- demodaten: zwei verwaltungskräfte?
+CANCELLED - demodaten: zwei verwaltungskräfte?
 
 
 - Struktur ebkus-3.2:
