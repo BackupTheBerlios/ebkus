@@ -3,8 +3,8 @@
 
 
 # Hostname des Servers
-# HOST = 'ihr_pcname.domain.de'
-HOST = 'siesta.in-berlin.de'    
+HOST = 'ihr_pcname.domain.de'
+# HOST = 'siesta.in-berlin.de'    
 
 # Datenbank-Site A
 SITE = 'A'                    
@@ -27,13 +27,13 @@ CLIKE = 'like'
 if DATABASE_TYPE == 'mSQL': CLIKE = 'clike'
 
 # vollstaendiger Pfad fuer EBKuS
-# EBKUSHOME = '/home/ebkus/public_html/ebkus'   # Linux
-EBKUSHOME = '/home/juerg/html-ref/ebkus'      # Linux
+EBKUSHOME = '/home/ebkus/public_html/ebkus'   # Linux
+# EBKUSHOME = '/home/juerg/html-ref/ebkus'      # Linux
 # EBKUSHOME = 'C:\Programme\ebkus'              # Windows
 
 # vollstaendiger URL-Pfad fuer EBKuS (mit SLASH am Ende)
-# EBKUSROOT = "/~ebkus/ebkus/"           # Linux
-EBKUSROOT = "/~juerg/ebkus/"           # Linux
+EBKUSROOT = "/~ebkus/ebkus/"           # Linux
+# EBKUSROOT = "/~juerg/ebkus/"           # Linux
 # EBKUSROOT = "/efb/"               # Windows
 
 # vollstaendiger CGI-BIN Pfad fuer EBKuS (bzw. Pfad des SrciptAlias)
