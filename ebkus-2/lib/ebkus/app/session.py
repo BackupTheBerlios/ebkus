@@ -42,8 +42,8 @@ def check_sessions():
     """Ungültige sessions rauswerfen"""
     for s_id, s in _session._session_dict.items():
         if not s.is_valid():
-            del self._session_dict[s_id]
-            del self._user_dict[s.user]
+            del s._session_dict[s_id]
+            del s._user_dict[s.user]
             
 # die _session Klasse ist privat
 class _session(object):
