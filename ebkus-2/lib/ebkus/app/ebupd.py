@@ -2065,13 +2065,6 @@ def updcode(form):
     code['code'] = check_str_not_empty(form, 'code',
                                        "Merkmalscode fehlt", codeold)
     code['kat_code'] = check_str_not_empty(form, 'katcode',
-                                           "Kategoriencode fehlt", codeold)
-    try:
-        c = Code(code=code['code'], kat_code=code['kat_code'])
-        raise EBUpdateDataError("Code %(code)s existiert bereits" % c)
-    except dbapp.DBAppError:
-        # Ok, existiert nicht
-        pass
     code['kat_id'] = check_fk(form, 'katid', Kategorie,
                                          "Kategorienid fehlt", codeold)
     code['name'] = check_str_not_empty(form, 'name',
