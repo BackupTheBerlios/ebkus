@@ -19,7 +19,7 @@ class menu(Request.Request):
     user = self.user
     stelle = self.stelle
     mitarbeiter = self.mitarbeiter
-    
+
     # Headerblock, Menü u. Überschrift für das HTML-Template
 
     header = {'titel': 'Klientenkartei',

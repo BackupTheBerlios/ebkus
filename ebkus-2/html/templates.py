@@ -26,7 +26,7 @@ header_t = """
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <STYLE type="text/css">
-<!-- BODY { background-color:#EFEFEF; color:#000000; font-family:Helvetica,,Arial,sans-serif; font-style:normal; font-variant:normal; }
+<!-- BODY { background-color:#EFEFEF; color:#000000; font-family:Helvetica,Arial,sans-serif; font-style:normal; font-variant:normal; }
 p,h1,h2,h3,h4,h5,h6,ul,ol,li,div,td,th,address,blockquote,nobr,b,i
      { font-family: Helvetica,Arial,sans-serif; font-style:normal; font-variant:normal; }
 //-->
