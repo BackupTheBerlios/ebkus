@@ -122,24 +122,24 @@ codeneu1_t = """
     <td align="left" class="labeltext">Maximum:</td>
     </tr>
     <tr>
-    <td align="center"><input type="text" class="textboxmid" maxlength=8 name="code"></td>
-    <td align="center"><input type="text" class="textboxlarge" maxlength=60 name="name"></td>
-    <td align="center"><select name="sort" class="listbox30"> """
+    <td align="left"><input type="text" class="textboxmid" maxlength=8 name="code"></td>
+    <td align="left"><input type="text" class="textboxlarge" maxlength=60 name="name"></td>
+    <td align="left"><select name="sort" class="listbox30"> """
 
 codeneu2_t = """
     <option value="%d" %s > %d """
 
 codeneu3_t = """
     </select></td>
-    <td align="center"><input type="text" class="textboxmid" maxlength=8 name="mini"></td>
-    <td align="center"><input type="text" class="textboxmid" maxlength=8 name="maxi"></td>
+    <td align="left"><input type="text" class="textboxmid" maxlength=8 name="mini"></td>
+    <td align="left"><input type="text" class="textboxmid" maxlength=8 name="maxi"></td>
     </tr>
     """
 codeneu4_t = """
     <tr>
-    <td colspan="5" align="center" class="labeltext">Dokumentation:</td>
+    <td colspan="5" align="left" class="labeltext">Dokumentation:</td>
     </tr>
-    <tr><td colspan="5" align="center"><input type="text" class="textboxlarge" maxlength=255 name="dok"></td></tr>
+    <tr><td colspan="5" align="left"><input type="text" class="textboxlarge" maxlength=255 name="dok"></td></tr>
     <tr><td colspan="5">&nbsp;</td></tr>
     </table>
     </td>
@@ -239,11 +239,11 @@ updcode1_t = """
           <td align="left" class="labeltext" bgcolor="#CCCCCC">Jahr:</td>
         </tr>
         <tr>
-          <td align="center" class="normaltext"> %(code)s </td>
-          <td class="normaltext">
-            <input type="text" size=30 maxlength=60 value="%(name)s" name="name" class="textboxmid">
+          <td align="left" class="normaltext"> %(code)s </td>
+          <td align="left" class="normaltext">
+            <input type="text" maxlength=60 value="%(name)s" name="name" class="textboxlarge">
           </td>
-          <td class="normaltext">
+          <td align="left" class="normaltext">
             <select name="sort" class="listbox30">"""
 
 updcode2_t = """
@@ -252,28 +252,28 @@ updcode2_t = """
 updcode3_t = """
             </select>
           </td>
-          <td class="normaltext">
-            <input type="text" class="textboxmid" size=8 maxlength=8
+          <td align="left" class="normaltext">
+            <input type="text" class="textboxmid" maxlength=8
     value="%(mini)s" name="mini">
           </td>
-          <td class="normaltext">
-            <input type="text" class="textboxmid" size=8 maxlength=8
+          <td align="left" class="normaltext">
+            <input type="text" class="textboxmid" maxlength=8
     value="%(maxi)s" name="maxi">
           </td>
           """
 
 updcode4_t = """
-          <td class="normaltext"> Ja
+          <td align="left" class="normaltext"> Ja
             <input type="checkbox" value="1"  name="off"
     %(check)s >
           </td>
           """
 
 updcode5_t = """
-          <td class="normaltext">
+          <td align="left" class="normaltext">
             <input type="text" class="textboxsmall" size=2 maxlength=2 value="%(dm)s" name="dm">
           </td>
-          <td class="normaltext">
+          <td align="left" class="normaltext">
             <input type="text" class="textboxmid" size=4 maxlength=4 value="%(dy)s" name="dy">
           </td>
         </tr>
@@ -281,11 +281,11 @@ updcode5_t = """
 
 updcode6_t = """
         <tr>
-          <td colspan="8" align="center" class="labeltext">Dokumentation:</td>
+          <td colspan="8" align="left" class="labeltext">Dokumentation:</td>
         </tr>
-        <tr align="center">
-          <td colspan="8">
-            <input class="textboxlarge" type="text" size=64  maxlength=255 value="%(dok)s" name="dok">
+        <tr>
+          <td colspan="8" align="left">
+            <input class="textboxlarge" type="text" maxlength=255 value="%(dok)s" name="dok">
           </td>
         </tr>
       <tr><td colspan="8">&nbsp;</td></tr>
