@@ -98,8 +98,8 @@ EBKuS-2 (5. Juni 2001):
 - Funktionen in die Requestklasse ausgelagert (wie z.B. Authorisierung). 
 - Die Funktionen für die HTML-Ausgabe sind als Klassen implementiert 
   und in wenigen Dateien zusammengefasst worden. 
-- Die Klassen und Module werden zugehörigen Namensraum bzw. Modul 
-  referiert und verwendet (kein globaler Import mehr). 
+- Die Klassen und Module werden mit dem zugehörigen Namensraum bzw. 
+  der Modulbezeichnung referiert und verwendet (kein globaler Import mehr). 
 - Aufteilung der verschiedenen Programmteile auf eigene Verzeichnisse.
 
 

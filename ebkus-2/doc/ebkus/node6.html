@@ -34,9 +34,9 @@ Die <em>EBKuS</em>-Distribution umfasst das folgende Programmpaket:
 <LI> URL: <A NAME="tex2html23" HREF="http://ebkus.berlios.de">http://ebkus.berlios.de</A>
 </UL><H2><A NAME="SECTION00061000000000000000"><em>EBKuS</em>-Versionskontrolle</A></H2>
 <P>
-Es gibt eine eine fortlaufende transparente Kontrolle über alle Updates und
+Es gibt eine fortlaufende transparente Kontrolle über alle Updates und
 Änderungen an den Sourcen des Programms. Die Versionskontrolle erfolgt mit CVS
-(Current Version System) auf der Site <tt>www.berlios.de</tt>.
+(Concurrent Versions System) auf der Site <tt>www.berlios.de</tt>.
 <UL>
 <LI> <A NAME="tex2html24" HREF="http://developer.berlios.de/projects/ebkus/">http://developer.berlios.de/projects/ebkus/</A>
 </UL>
@@ -113,19 +113,15 @@ der besonders geschützten Klientenverwaltung gespeichert. Bei Bedarf kann ein
 Modul zur Evaluation der Beratungen verwandt werden. Der ICD-10 wird in der
 nächsten Version für die Statistik von Therapien angeboten.
 <P>
-Neu in der Version 2.0 sind vor allem Änderungen am Programmcode:
+Neu in der Version 2.0 sind die folgenden Änderungen am Programmcode:
 <UL>
-<LI> EBKuS (EBKuS.py), eine Hauptklasse für die Suche nach Objekten, welche
-  publiziert werden. Request (Request.py), eine allgemeine Klasse für den
-  Request.
+<LI> Zwei neue zentrale Klassen (EBKuS und Request).
 <LI> Funktionen in die Requestklasse ausgelagert (wie z.B. Authorisierung)
-<LI> Alle Funktionen für die HTML-Ausgabe sind nun in wenigen Dateien
-  zusammengefasst und als Klassen implementiert.  (im Verzeichnis: html)
-<LI> der Import von Namen, Modulen und Packages wird jetzt einzeln referiert.
-  (Man sieht sofort, was vom Modul referenziert wird und in welchem
-  Verzeichnis es steht).
-<LI> neue Verzeichnis- und Dateistruktur. Aufteilung der einzelnen
-  Anwendungsteile in unterschiedliche Verzeichnisse.
+<LI> Die Funktionen für die HTML-Ausgabe sind als Klassen implementiert 
+  und in wenigen Dateien zusammengefasst worden. 
+<LI> Die Klassen und Module werden mit dem zugehörigen Namensraum
+     bzw. der Modulbezeichnung referiert und verwendet (kein globaler Import mehr). 
+<LI> Die Aufteilung der einzelnen Anwendungsteile in unterschiedliche Verzeichnisse.
 </UL><H2><A NAME="SECTION00066000000000000000">Programmautoren</A></H2>
 <P>
 <A NAME="secAutoren">&#160;</A>

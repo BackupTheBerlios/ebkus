@@ -136,4 +136,3 @@ ebkus			 Bootskript von EBKuS für SuSE-Linux-Distribution
 ebkus.sh		 Startskript für EBKuS als Hintergrundprozess
 et.py			 Notizdatei zum Ausprobieren von Codefragmenten
 timing.py		 Perfomance-Messung
-
