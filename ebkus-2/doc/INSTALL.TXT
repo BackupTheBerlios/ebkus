@@ -69,9 +69,14 @@ Als User root:
    
 6. Python installieren, falls ausnahmsweise nicht vorhanden.
    (u.U. symbolischer Link /usr/local/bin/python auf /usr/bin/python 
-   anlegen).
+   anlegen, da in den Scripten der Interpreter mit
+   /usr/local/bin/python aufgerufen wird).
+
+   MySQL-python-0.3.5.tar.gz im Verzeichnis ebkus mit:
+   > tar -xzf MySQL-python-0.3.5.tar.gz 
+   auspacken.
    MySQLdb.py, das MySQL-DB-Python-Module installieren, d.h. im
-   Source Verzeichnis von ebkus/mysql-python-0.3.5-linux folgendes am 
+   Source Verzeichnis von ebkus/MySQL-python-0.3.5 folgendes am 
    Prompt ausführen. 
    > python setup.py build
    > python setup.py install
@@ -89,9 +94,9 @@ Als User root:
    SQL-Datenbanken als MySQL wie z.Bsp. Oracle, Informix etc. müssten
    entsprechend andere passende Datenbankmodule von Python installiert
    und die Adapter-Datei dbadapt.py in EBKuS angepasst werden.  Sollte
-   die Installation des beiliegenden Moduls fehlschlagen, finden sie
-   auch Binary-Pakete und RPM Pakte auf der Homepage des Autors:
-   http://dustman.net
+   die Installation des beiliegenden Moduls (Source) fehlschlagen,
+   finden sie auch Binary-Pakete und RPM Pakte auf der Homepage des
+   Autors: http://dustman.net
 
    Prüfen Sie nach der Installation die Lauffähigkeit aller Programme,
    indem Sie die folgenden Executables aufrufen:
@@ -151,7 +156,7 @@ Als User ebkus:
    enthalten ist, also in die Datei .bashrc im Homeverzeichnis mit
    dem Texteditor z.B. folgendes eintragen:
 
-   PYTHONPATH=$HOME/public_html/ebkus:/usr/lib/python:
+   PYTHONPATH=$HOME/public_html/ebkus:/usr/lib/python2.1:
    export PYTHONPATH
 
 
@@ -200,7 +205,6 @@ Als User ebkus:
    from migrdata_kreuzberg import *	     # Demo aus der EFB-Kreuzberg
    # from migrdata_minimum import *	     # absolutes Minimum,
 					     # incl. Bundesstatistik
-     .
    # from migrdata import *		     # Standard
 
    Um eigene Itemlisten für die Installation zu erstellen, sollte man
@@ -310,6 +314,11 @@ Internet-Explorer oder Netscape anmelden:
 Jürg Huber, 
 juerg@pantau.in-berlin.de
 http://pantau.in-berlin.de
+
+
+
+
+
 
 
 

@@ -20,6 +20,10 @@ Mit dem zum Apache gehörenden Programm "htpasswd" die Benutzerkennungen
 und Passwörter für die Anwender von EBKuS in die bei der Direktive
 "AuthUserFile" eingetragene Datei aufnehmen.
 
+Einen User mit Namen Admin und für die Beipielinstallation einen mit
+Namen Gast eintragen. (siehe die Dateien migrdata* im Verzeichnis
+ebkus/gen).
+
 3. HTTP-Server neu starten!
 
 
@@ -82,7 +86,7 @@ Im angelegten cgi-bin ScriptAlias Verzeichnis /usr/local/httpd/efb
 unbedingt einen symbolischen Link mit Namen ebs auf die Datei
 ebcgi.py im Installationsverzeichnis von EBKuS anlegen:
 
-Befehl: ln -s /home/ebkus/public_html/ebkus/ebcgi.py ebs
+> ln -s /home/ebkus/public_html/ebkus/ebcgi.py ebs
 
 Vgl. auch die Erläuterung in README.server.
 
