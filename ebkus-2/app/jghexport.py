@@ -35,7 +35,7 @@ in diese Hauptdatenbank eingelesen wurden (vgl. Script: dbexport.py)
 import sys, string, time, glob
 
 from ebkus import config
-from ebkus.app import ebapi JugendhilfestatistikList
+from ebkus.app.ebapi import JugendhilfestatistikList
 
 MAX_LNR = None     
 
