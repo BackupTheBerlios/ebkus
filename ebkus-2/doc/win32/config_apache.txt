@@ -6,13 +6,14 @@ Beispiel-Konfiguration des Apache für EBKuS (Windows).
 In die Datei httpd.conf des HTTPD-Servers Apache sollten die
 untenstehenden Einträge kopiert werden, damit der Apache
 
-a) die User-Authorisierung für EBKuS durchführt
-b) ein eigenes cgi-bin (ScriptAlias)-Verzeichnis für EBKuS da ist
-c) ein UserDir Verzeichnis für ebkus  vorhanden ist.
+a) die User-Authorisierung für EBKuS durchführt.
+b) Ein Alias-Eintrag für das EBKuS-Installationsverzeichnis 
+   vorhanden ist.
+c) Bei den Options ExecCGI eingetragen ist.
 
-Bitte Reihenfolge der Direktiven in der httpd.conf beachten.  Siehe
-auch die Kommentare in der httpd.conf zu den nachfolgend
-verwandten "Directiven" des Apache.
+Bitte die Reihenfolge der Einträge in der httpd.conf beachten. Siehe
+auch die Kommentare und Beispiele in der httpd.conf zu den einzelnen
+Anweisungen und das Manual des Apache.
 
 2. 
 
@@ -34,26 +35,27 @@ hptasswd.exe in einem Dos-Fenster aufrufen, z.Bsp.:
 
 
 #
-# ein neues cgi-bin (ScriptAlias)-Verzeichnis fuer EBKuS
+# das Alias-Verzeichnis für EBKuS
 #
 
-ScriptAlias "/efb/" "C:\Programme\ebkus\"  # Alias für CGI-BIN-Scripte
+Alias /efb/ "C:/Programme/ebkus/"  # Alias für das Installationsverzeichnis
 
 
 #
-# Directory Direktiven mit Passwort-Authorisierung für das 
-# neue cgi-bin (ScriptAlias)-Verzeichnis /efb/
+# Directory Direktiven mit Passwort-Authorisierung für die
+# URL http:/localhost/efb/
 #
 
-<Directory "C:\Programme\ebkus">        
+<Directory "C:/Programme/ebkus">        
 AllowOverride None
-Options FollowSymLinks ExecCGI Includes 
+AddHandler cgi-script *.py
+Options FollowSymLinks ExecCGI Includes  Multiviews # zum Testen noch Indexes
 Order Deny,Allow
 Deny from all
 # Die berechtigte Hostnamen oder IP-Adressen nach from eintragen
 Allow from ihr_server.domainname.de	     # ändern!
 AuthType Basic
-AuthUserFile C:\Programme\Apache Group\Apache\conf\efb_users  # Beispiel.
+AuthUserFile C:/Programme/Apache Group/Apache/conf/efb_users  # Beispiel.
 AuthName "Klientenkartei EFB"
 require valid-user
 </Directory>
