@@ -21,8 +21,8 @@ EBKuS-3.2 (10. Oktober 2004)
 - großflächige Restrukturierung der Code-Basis im Interesse einer
   verbesserten Wartbarkeit
 - Behebung von Fehlern
-- Zahlreiche Verbesserungen im Detail
-
+- zahlreiche Verbesserungen im Detail
+- die Differenzierung in eine Standardversion und in eine Berliner Version
 
 EBKuS-3.0 (21. Mai 2002):
 -------------------------
