@@ -195,6 +195,46 @@ werden, anstatt in die Log-Datei (siehe `Konfiguration`_). [Wer
 sehr viel Output sehen will, starte mit ``./start.py --console
 --debug`` :-)]
 
+Konfiguration des Internetbrowsers
+----------------------------------
+
+Die Anwendung EBKuS 3.2 haben wir geprüft mit den Open Source Browsern
+Mozilla, Netscape, Firefox und mit dem Internetbrowser von Microsoft. Der
+Interbrowser sollte folgende Einstellungen aufweisen, um mit EBKuS problemlos
+zu arbeiten:
+
+- *Cookies*: Cookies müssen aktiviert bzw. für die Webadresse von EBKuS
+  zugelassen werden.  
+- *Temporäre Internetdateien*: Die aufgerufenen HTML-Seiten werden meistens
+  temporär auf der Festplatte gespeichert. Als Anwender kann man einstellen,
+  wie der Internetbrowser mit diesen temporären Dateien umgeht. Um
+  auszuschliessen, dass er veraltete Dateien aus dem lokalen Zwischenspeicher
+  aufruft, sollte man bei den Einstellungen für die temporären Dateien
+  bzw. den Cache den Knopf "automatisch" im Internetbrowser von Microsoft
+  oder den Knopf "Wenn die Seite veraltet ist" im Mozilla, Netscape aktivieren.
+- *SSL*: Um die verschlüsselte Datenübertragung zu gewährleisten, sollte "SSL
+  2.0 verwenden" und "SSL 3.0 verwenden" aktiviert sein. Beides ist 
+  standardmässig beim MS Internetbrowser angekreuzt.
+- *Verschlüsselter Seiten*: Im MS Internetbrowser sollte "Verschlüsselte
+  Seiten nicht auf der Festplatte speichern" deaktiviert sein.
+- *HTTP 1.1. über Proxy verwenden*: Dieses Feature sollte im MS
+  Internetbrowser deaktiviert und "HTTP 1.1 verwenden" angekreuzt sein.
+
+Weiter empfehlen wir, aus Sicherheitsgründen folgende Hinweise bei der Arbeit
+mit dem Internetbrowser zu berücksichtigen:
+
+- *Temporäre Internetdateien*: Arbeiten mehrere Anwender auf einem PC unter
+  dem gleichen Benutzernamen, sollte man ankreuzen, dass beim Beenden des
+  Browsers alle temporären Dateien gelöscht werden.  
+- *Passwortmanager*: Sofern mehrere Anwender auf dem PC unter der gleichen
+  Kennung arbeiten, sollte man auf die Speicherung der Passwörter im
+  Passwortmanager verzichten.
+- *Warnungen*: In Abhängigkeit des gewählten Grades der
+  Sicherheitseinstellungen erhält der Anwender Warnhinweise vom Browser,
+  z.B. beim Verlassen verschlüsselter Verbindungen etc. Die Anzeigen solcher
+  Warnhinweise können im Eigenschaftendialog aktiviert oder deaktiviert
+  werden.
+
 
 Datensicherung
 --------------
