@@ -62,9 +62,8 @@ EBKuS-Software
   doc/installation.txt.
 
 - vollständige Distribution inklusive der gesamten zusätzlich
-  benötigten Software (ca .70MB)::
+  benötigten Software (ca. 70MB)::
 
     ftp://ftp.bke.de/pub/ebkus/ebkus-3.2/ebkus-3.2-dist.zip
 
-  (ca. 70MB, nur bei schnellem Internetzugang zu empfehlen).
 

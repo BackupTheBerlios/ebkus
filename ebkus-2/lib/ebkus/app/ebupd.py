@@ -2065,8 +2065,9 @@ def updcode(form):
     code['code'] = check_str_not_empty(form, 'code',
                                        "Merkmalscode fehlt", codeold)
     code['kat_code'] = check_str_not_empty(form, 'katcode',
+                                           "Kategoriencode fehlt", codeold)
     code['kat_id'] = check_fk(form, 'katid', Kategorie,
-                                         "Kategorienid fehlt", codeold)
+                              "Kategorienid fehlt", codeold)
     code['name'] = check_str_not_empty(form, 'name',
                                        "Merkmalsname fehlt", codeold)
     if form['mini'] != '' or form['maxi'] != '' or codeold['kat_code'] == 'dbsite':
