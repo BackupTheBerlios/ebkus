@@ -8,7 +8,7 @@ if DATABASE_TYPE == 'MySQL':
 
   import MySQL
 
-  def connect(host = None, user = '', passw = '', dbname = ''):
+  def connect(host = None, user = '' , passw = '', dbname = ''):
     db = MySQL.connect(host, user, passw)
     if dbname:
       db.selectdb(dbname)

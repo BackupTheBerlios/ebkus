@@ -48,7 +48,7 @@ Alias /efb/ "C:/Programme/ebkus/"  # Alias für das Installationsverzeichnis
 
 <Directory "C:/Programme/ebkus">        
 AllowOverride None
-AddHandler cgi-script *.py
+AddHandler cgi-script .py
 Options FollowSymLinks ExecCGI Includes  Multiviews # zum Testen noch Indexes
 Order Deny,Allow
 Deny from all

@@ -29,7 +29,7 @@ if DATABASE_TYPE == 'mSQL': CLIKE = 'clike'
 # vollstaendiger Pfad fuer EBKuS
 EBKUSHOME = '/home/ebkus/public_html/ebkus'   # Linux
 # EBKUSHOME = '/home/juerg/html-ref/ebkus'      # Linux
-# EBKUSHOME = 'C:\Programme\ebkus'              # Windows
+# EBKUSHOME = 'C:/Programme/ebkus'              # Windows
 
 # vollstaendiger URL-Pfad fuer EBKuS (mit SLASH am Ende)
 EBKUSROOT = "/~ebkus/ebkus/"           # Linux
@@ -38,7 +38,7 @@ EBKUSROOT = "/~ebkus/ebkus/"           # Linux
 
 # vollstaendiger CGI-BIN Pfad fuer EBKuS (bzw. Pfad des SrciptAlias)
 CGI_BIN_PATH = '/usr/local/httpd/efb'   # Linux
-# CGI_BIN_PATH = 'C:\Programme\ebkus'     # Windows
+# CGI_BIN_PATH = 'C:/Programme/ebkus'     # Windows
 
 # Publishing-Module Name für EBKuS
 # (Importiert die Python-Objekte, die "publiziert" werden sollen)
