@@ -9,7 +9,7 @@ Die Sourcen von EBKuS-2 können von registrierten Entwicklern mit dem
 Befehl ausgecheckt werden:
 cvs -ddevelopername@cvs.berlios.de:/cvsroot/ebkus co ebkus-2
 
-Hinweise für die Installation des Sourcen aus dem CVS-Archiv:
+Hinweise für die Installation der Sourcen aus dem CVS-Archiv:
 -------------------------------------------------------------
 
 Die lauffähige Installation der Sourcen von EBKuS aus dem
@@ -20,9 +20,6 @@ CVS-Repository setzt voraus:
 - Mysql 2.22 u. höher
 - Mysqldb (Mysql-Python Modul)
 - Reportlab (Sollte ins Verzeichnis ebkus/reportlab installiert werden!).
-
-- Symbolischer Link des Verzeichnisses ebkus-2 auf 
-  ebkus (oder in config.py die Pfade von ebkus-2 eintragen.).
 
 Ausführliche Installationshinweise befinden sich in der Datei
 INSTALL.TXT im Verzeichnis ebkus/doc, Hinweise zum Download der
