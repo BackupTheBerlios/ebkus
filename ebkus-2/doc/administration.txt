@@ -199,7 +199,7 @@ Konfiguration des Internetbrowsers
 ----------------------------------
 
 Die Anwendung EBKuS 3.2 haben wir geprüft mit den Open Source Browsern
-Mozilla, Netscape, Firefox und mit dem Internetbrowser von Microsoft. Der
+Mozilla, Netscape, Firefox und mit dem Internet-Explorer von Microsoft. Der
 Interbrowser sollte folgende Einstellungen aufweisen, um mit EBKuS problemlos
 zu arbeiten:
 
@@ -214,11 +214,11 @@ zu arbeiten:
   oder den Knopf "Wenn die Seite veraltet ist" im Mozilla, Netscape aktivieren.
 - *SSL*: Um die verschlüsselte Datenübertragung zu gewährleisten, sollte "SSL
   2.0 verwenden" und "SSL 3.0 verwenden" aktiviert sein. Beides ist 
-  standardmässig beim MS Internetbrowser angekreuzt.
-- *Verschlüsselter Seiten*: Im MS Internetbrowser sollte "Verschlüsselte
+  standardmässig beim MS Internet-Explorer angekreuzt.
+- *Verschlüsselter Seiten*: Im MS Internet-Explorer sollte "Verschlüsselte
   Seiten nicht auf der Festplatte speichern" deaktiviert sein.
 - *HTTP 1.1. über Proxy verwenden*: Dieses Feature sollte im MS
-  Internetbrowser deaktiviert und "HTTP 1.1 verwenden" angekreuzt sein.
+  Internet-Explorer deaktiviert und "HTTP 1.1 verwenden" angekreuzt sein.
 
 Weiter empfehlen wir, aus Sicherheitsgründen folgende Hinweise bei der Arbeit
 mit dem Internetbrowser zu berücksichtigen:
