@@ -4,6 +4,7 @@
 ## der Windows-Pfad fuer Python stehen u. der Parameter -u, wie z.B.
 ## #!C:\Programme\python21\python.exe -u
 
+"""Startdatei für EBKuS"""
 
 import os, string
 from ebkus.config import PUBLISHING_MODULE, CGI_BIN_PATH
