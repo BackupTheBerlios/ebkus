@@ -8,14 +8,14 @@ Prämissen:
    Datenbanksite und Dienststelle sind nicht identisch und im Programm
    getrennt, nach DBSITE und Stellenzeichen.
 2. Jede Stelle sieht nur die Daten der eigenen Stelle. Ausnahme:
-   Anonyme statisitisiche Daten sind allen Stellen zugänglich.
+   Anonyme statistische Daten sind allen Stellen zugänglich.
 3. Jede Datenbank hat unterschiedliche, eigene ID-Räume.
-6. Code und Mitarbeiter sind in allen DB-Sites identisch.
-4. Jede Site ist Masterdb bei Akte/Statistik, die  ihr stzei hat.
-5. Es gibt 1 Masterdb für Code u. Mitarbeiter, d.h.
+4. Code und Mitarbeiter sind in allen DB-Sites identisch.
+5. Jede Site ist Masterdb bei Akte/Statistik, die  ihr stzei hat.
+6. Es gibt 1 Masterdb für Code u. Mitarbeiter, d.h.
    1 Masterdb exportiert Code u. Mitarbeiter, die anderen importieren
    diesen und exportieren keinen Code u. Mitarbeiter in die Masterdb.
-6. Es werden Akten und Statistik von anderen DatenbankSites in die
+7. Es werden Akten und Statistik von anderen DatenbankSites in die
    Masterdb exportiert, die Masterdb exportiert nur Code und die Mitarbeiterids.
 
 ------------------------------------
@@ -45,7 +45,7 @@ Eingang:
    existiert identische id: update, sonst:
    insert.
 2. für eingang zugelassen: 
-   bei Akten/Statistik: gleiche id, neü id, 
+   bei Akten/Statistik: gleiche id, neue id, 
    stzei der anderen sites für Daten mit stzei 
    der anderen sites. Nie: stzei der eigenen site (ausser:
    Akten-/Fallabgabe, was hier nicht behandelt wird. extra Vorgang).
@@ -60,7 +60,6 @@ Eingang:
    Löschmöglichkeit anbieten.).
 5. Fehlerprotokoll: alle fehlerhaften Datensätze in extra-files 
    speichern (gegenenfalls: wiederholung von ein-/aus für diese)
-   z.Bsp: gleiche Aktenid, jedoch verschiedenes stzeiaktüll)
 6. Protokoll in abgleichstabelle.
 -----------
 Spezialfall (ausserhalb des DB-Abgleichs behandeln, eigener Vorgang):
@@ -80,10 +79,7 @@ Spezialfall (ausserhalb des DB-Abgleichs behandeln, eigener Vorgang):
 generell: parallele Akteneinträge auf mehreren sites gibt es nicht, so dass
 immer die site, welche die Akte führt, das update-Recht auf der
 anderen Db-Site hat.
-austauschregeln gelten nur für DB-Sites, welche zu 1 Masterdb
+austauschregeln gelten nur für DB-Sites, welche zur 1 Masterdb
 gehören, wg. codes, Mitarbeiter.
 verhindern, dass abgleichsfiles der exp. Site dort 
 reimportierbar sind (backups wären getrennt zu behandeln.)
-
-
-
