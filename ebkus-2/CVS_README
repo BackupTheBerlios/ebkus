@@ -1,3 +1,19 @@
+Bezug des Quellcodes aus dem CVS-Archiv
+---------------------------------------
+
+Der Quellcode des Projektes EBKuS wird mit CVS verwaltet und ist auf
+der folgenden Url zu finden:
+
+http://developer/berlios.de/projects/ebkus
+
+Die Sourcen von EBKuS-2 können von registrierten Entwicklern mit dem
+Befehl ausgecheckt werden:
+
+cvs -ddevelopername@cvs.berlios.de:/cvsroot/ebkus co ebkus-2
+
+Anonyme Nutzer verwenden den Befehl:
+
+
 
 Hinweise für die Installation des Sourcen aus dem CVS-Archiv:
 -------------------------------------------------------------
@@ -15,9 +31,10 @@ CVS-Repository setzt voraus:
   ebkus (oder in config.py die Pfade von ebkus-2 eintragen.).
 
 Ausführliche Installationshinweise befinden sich in der Datei
-INSTALL.TXT im Verzeichnis ebkus/doc, Hinweise zum Download
-dieser Programme in der Datei ebkus/doc/download.txt
+INSTALL.TXT im Verzeichnis ebkus/doc, Hinweise zum Download der
+vorausgesetzten Programme in der Datei ebkus/doc/download.txt
 
 
 Jürg Huber, juerg@pantau.in-berlin.de
+
 
