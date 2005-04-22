@@ -285,7 +285,7 @@ werden, sowie Demo- und Schulungsinstanzen mit Spieldaten.
 
 Jede Instanz hat ihren eigenen EBKuS-Server, der unabhängig von
 anderen Instanzen gestartet und angehalten werden kann. Jede
-Instanz hat ihre eigene Datenbank. Es nicht möglich, die
+Instanz hat ihre eigene Datenbank. Es ist nicht möglich, die
 Daten verschiedener Instanzen zu verknüpfen oder
 zusammenzufassen. Alle Instanzen verwenden gemeinsam eine
 Apache-Installation und eine MySQL-Installation.
@@ -350,7 +350,7 @@ leiten eine Sektion ein, z.B.::
 
 Die übrigen Zeilen weisen einem Parameter einen Wert zu. Sie
 beginnen mit dem Namen des Parameters, gefolgt von einem
-Semikolon, gefolgt von dem Wert. Vor oder nach dem Semikolon
+Doppelpunkt, gefolgt von dem Wert. Vor oder nach dem Doppelpunkt
 können Leerzeichen stehen. Beispiel::
 
   install_dir: C:\ebinst
