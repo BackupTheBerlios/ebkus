@@ -1256,6 +1256,8 @@ def jgheinf(form):
             break
         else: jghstat['ba9'] = cc('ba9', '0')
         
+
+
     jghstat['zeit'] = int(time.time())
     
     try:
@@ -1265,6 +1267,20 @@ def jgheinf(form):
         except: pass
         raise EBUpdateError("Fehler beim Einfügen in die Datenbank: %s" % str(args))
         
+
+def jgh_laufende_nummer_setzen():
+    # laufende Nummer ermitteln und setzen
+    jghstatliste = JugendhilfestatistikList(where = 'lnr > 0', order = 'lnr')
+    if jghstatliste:
+        letzte = jghstatliste[-1]['lnr']
+    else:
+        letzte = 0
+    jghstatliste = JugendhilfestatistikList(where = 'lnr IS NULL ', order = 'id')
+    for j in jghstatliste:
+        letzte += 1
+        j.update({'lnr': letzte})
+
+
 def updjgh(form):
     """Update der Jugendhilfestatistik."""
     
