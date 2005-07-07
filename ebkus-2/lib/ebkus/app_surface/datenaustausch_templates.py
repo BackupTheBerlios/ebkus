@@ -11,7 +11,7 @@ jghexportfeedback_t = """
             der Bundesjugendhilfestatistik %(jahr)s</legend>
             <table width="90%%" border="0" cellpadding="1" height="50">
               <tr>
-                <td align="center"> <A class="legendtext" HREF="%(ebkushome)s%(exportdir)s/jgh_%(jahr)s.txt">jgh_%(jahr)s.txt</A>
+                <td align="center"> <A class="legendtext" HREF="%(jgh_url)s">%(jgh_filename)s</A>
                 </td>
               </tr>
             </table>
@@ -22,7 +22,7 @@ jghexportfeedback_t = """
             der Bundesjugendhilfestatistik %(jahr)s</legend>
             <table width="90%%" border="0" cellpadding="1" height="50">
               <tr>
-                <td align="center"> <A class="legendtext" HREF="%(ebkushome)s%(exportdir)s/jgh_log_%(jahr)s.txt">jgh_log_%(jahr)s.txt</A>
+                <td align="center"> <A class="legendtext" HREF="%(jgh_log_url)s">%(jgh_log_filename)s</A>
                 </td>
               </tr>
             </table>
@@ -59,7 +59,7 @@ thjghexportliste_t = """
 
 jghexportliste_t = """
               <tr>
-                <td align="center" width="95%%" class="normaltext" bgcolor="#FFFFFF"><A HREF="%s%s/%s">%s</A></td>
+                <td align="center" width="95%%" class="normaltext" bgcolor="#FFFFFF"><A HREF="%s">%s</A></td>
               </tr>"""
 
 jghexportliste_ende_t = """

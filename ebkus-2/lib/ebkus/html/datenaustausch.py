@@ -2,7 +2,7 @@
 
 """Module für den Im- und Export aus der Datenbank."""
 
-import string, time, os
+import time, os
 
 
 from ebkus.app import Request
@@ -10,7 +10,7 @@ from ebkus.config import config
 from ebkus.app.ebapi import Code, JugendhilfestatistikList, ExportprotokollList, ImportprotokollList, today, cc, getDBSite, EE
 from ebkus.app_surface.standard_templates import *
 from ebkus.app_surface.datenaustausch_templates import *
-
+from ebkus.app.jghexport import jghexport
 
 EXPORT_DIR = os.path.join('daten', 'export')
 EXPORT_DIR_URL = 'daten/export'
@@ -32,8 +32,58 @@ class formabfrjghexport(Request.Request):
                         'jahr' : '%s' % (today().year),
                         'dest_url':'menu'}
         res.append(bestaetigung_t %(bestaetigung))
-        return string.join(res, '')
+        return ''.join(res)
         
+        
+## class jghexportfeedback(Request.Request):
+##     """Aufruf zum Export der Jugendhilfestatistik und Feedback."""
+    
+##     permissions = Request.ADMIN_PERM
+    
+##     def processForm(self, REQUEST, RESPONSE):
+##         import os
+        
+##         mitarbeiterliste = self.getMitarbeiterliste()
+##         user = self.user
+        
+##         if self.form.has_key('jahr'):
+##             jahr = self.form.get('jahr')
+##         else:
+##             self.last_error_message = "Kein Jahr erhalten"
+##             return self.EBKuSError(REQUEST, RESPONSE)
+            
+##         jghlist = JugendhilfestatistikList(where = 'ey = %s' % jahr)
+##         if len(jghlist) < 1:
+##             self.last_error_message = 'Keine Bundesstatistik f&uuml;r %s vorhanden' % jahr
+##             return self.EBKuSError(REQUEST, RESPONSE)
+##         try:
+##             log_filename = os.path.join(config.INSTANCE_HOME, EXPORT_DIR, 'jgh_log_%s.txt' % jahr)
+##             log_filename_web = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, 'jgh_log_%s.txt' % jahr)
+##             # TBD: jghexport importieren statt als script!
+##             os.system('python %s/ebkus/app/jghexport.py %s ' % (config.INSTANCE_HOME, jahr) + '>%s' % log_filename)
+            
+##             # msg 2002-03-04 Anpassung fuer Anzeige per webinterface
+##             # es existieren nun die dateien in doppelter ausführung
+##             # einmal zum erhalt in dem verzeichnis /ebkus/daten/export
+##             # und zum andren im webserver verzeichnis zur anzeige im webbrowser
+            
+##             # Die Pfade muessen noch variabel gemacht werden. Juerg, 9.1.03
+##             f = open(log_filename, 'r')
+##             f_web = open(log_filename_web, 'w+')
+##             f_web.write(f.read())
+            
+##         except Exception, e:
+##             raise EE("Fehler beim Exportieren: %s" % str(e) ) 
+            
+##         site = Code(cc('dbsite', '%s' % getDBSite()))
+        
+##         res = []
+##         res.append(head_normal_ohne_help_t %("Exportdatei der %s" % site['name'] + " f&uuml;r das Jahr %s " % jahr))
+
+##         ausgabe = { 'ebkushome' : '/ebkus/%s/' % config.INSTANCE_NAME,
+##                     'exportdir' : EXPORT_DIR_URL, 'jahr' : jahr }
+##         res.append(jghexportfeedback_t % ausgabe)
+##         return string.join(res, '')
         
 class jghexportfeedback(Request.Request):
     """Aufruf zum Export der Jugendhilfestatistik und Feedback."""
@@ -52,26 +102,21 @@ class jghexportfeedback(Request.Request):
             self.last_error_message = "Kein Jahr erhalten"
             return self.EBKuSError(REQUEST, RESPONSE)
             
-        jghlist = JugendhilfestatistikList(where = 'ey = %s' % jahr)
-        if len(jghlist) < 1:
+        daten_saetze, log_daten_saetze = jghexport(jahr)
+        if not daten_saetze:
             self.last_error_message = 'Keine Bundesstatistik f&uuml;r %s vorhanden' % jahr
             return self.EBKuSError(REQUEST, RESPONSE)
         try:
-            log_filename = os.path.join(config.INSTANCE_HOME, EXPORT_DIR, 'jgh_log_%s.txt' % jahr)
-            log_filename_web = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, 'jgh_log_%s.txt' % jahr)
-            # TBD: jghexport importieren statt als script!
-            os.system('python %s/ebkus/app/jghexport.py %s ' % (config.INSTANCE_HOME, jahr) + '>%s' % log_filename)
-            
-            # msg 2002-03-04 Anpassung fuer Anzeige per webinterface
-            # es existieren nun die dateien in doppelter ausführung
-            # einmal zum erhalt in dem verzeichnis /ebkus/daten/export
-            # und zum andren im webserver verzeichnis zur anzeige im webbrowser
-            
-            # Die Pfade muessen noch variabel gemacht werden. Juerg, 9.1.03
-            f = open(log_filename, 'r')
-            f_web = open(log_filename_web, 'w+')
-            f_web.write(f.read())
-            
+            filename = 'jgh_%s.txt' % jahr
+            path = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, filename)
+            f = open(path, 'w')
+            f.write(daten_saetze)
+            f.close()
+            log_filename = 'jgh_log_%s.txt' % jahr
+            log_path = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, log_filename)
+            f_log = open(log_path, 'w')
+            f_log.write(log_daten_saetze)
+            f_log.close()
         except Exception, e:
             raise EE("Fehler beim Exportieren: %s" % str(e) ) 
             
@@ -80,10 +125,15 @@ class jghexportfeedback(Request.Request):
         res = []
         res.append(head_normal_ohne_help_t %("Exportdatei der %s" % site['name'] + " f&uuml;r das Jahr %s " % jahr))
 
-        ausgabe = { 'ebkushome' : '/ebkus/%s/' % config.INSTANCE_NAME,
-                    'exportdir' : EXPORT_DIR_URL, 'jahr' : jahr }
+        ausgabe = {
+            'jahr' : jahr,
+            'jgh_filename' : filename,
+            'jgh_url' : 'jghexportlist?file=%s' % filename,
+            'jgh_log_filename' : log_filename,
+            'jgh_log_url' : 'jghexportlist?file=%s' % log_filename,
+            }
         res.append(jghexportfeedback_t % ausgabe)
-        return string.join(res, '')
+        return ''.join(res)
         
         
 class jghexportlist(Request.Request):
@@ -93,6 +143,19 @@ class jghexportlist(Request.Request):
     
     def processForm(self, REQUEST, RESPONSE):
         import os
+        if self.form.has_key('file'):
+            file = self.form.get('file')
+            try:
+                filename = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, file)
+                f = open(filename)
+                content = f.read()
+                f.close()
+                self.RESPONSE.setHeader('content-type', 'text/plain')
+                self.RESPONSE.setBody(content)
+                return
+            except Exception, e:
+                raise EE("Fehler beim Download: %s" % str(e) ) 
+        
         mitarbeiterliste = self.getMitarbeiterliste()
         user = self.user
         site = Code(cc('dbsite', '%s' % getDBSite()))
@@ -104,11 +167,36 @@ class jghexportlist(Request.Request):
         res.append(thjghexportliste_t)
         for f in dateiliste:
             if f[0:4] == 'jgh_':
-                res.append(jghexportliste_t % ('/ebkus/%s/' % config.INSTANCE_NAME, EXPORT_DIR_URL, f, f))
+                res.append(jghexportliste_t % ('jghexportlist?file=%s' % f, f))
         res.append(jghexportliste_ende_t)
-        return string.join(res, '')
+        return ''.join(res)
         
         
+class jghexportget(Request.Request):
+    """Aufruf zum Export der Jugendhilfestatistik und Feedback."""
+    
+    permissions = Request.ADMIN_PERM
+    
+    def processForm(self, REQUEST, RESPONSE):
+        import os
+
+        if self.form.has_key('file'):
+            file = self.form.get('file')
+        else:
+            self.last_error_message = "Kein Dateiname"
+            return self.EBKuSError(REQUEST, RESPONSE)
+            
+        try:
+            filename = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, file)
+            f = open(filename)
+            content = f.read()
+            f.close()
+            self.RESPONSE.setHeader('content-type', 'text/plain')
+            self.RESPONSE.setBody(content)
+        except Exception, e:
+            raise EE("Fehler beim Download: %s" % str(e) ) 
+        
+
 class formabfrdbexport(Request.Request):
     """Auswahlformular für den Ex- bzw. Import von Daten."""
     
@@ -122,7 +210,7 @@ class formabfrdbexport(Request.Request):
         res = []
         res.append(head_normal_ohne_help_t %('Stellenabgleich: Ex- und Import von Daten in die Datenbank der ' + site['name']))
         res.append(formexport_t)
-        return string.join(res, '')
+        return ''.join(res)
         
         
 class stellenabgleich(Request.Request):
@@ -171,6 +259,6 @@ class stellenabgleich(Request.Request):
                 res.append(export_t % i)
                 del i['datum']
         res.append(thexport_ende_t)
-        return string.join(res, '')
+        return ''.join(res)
         
         
