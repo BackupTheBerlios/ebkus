@@ -1269,13 +1269,15 @@ def jgheinf(form):
         
 
 def jgh_laufende_nummer_setzen():
-    # laufende Nummer ermitteln und setzen
+    """Erteilt jeder Jugenhilfestatistik eine laufende Nummer"""
+    # höchste vorhandene laufende Nummer ermitteln
     jghstatliste = JugendhilfestatistikList(where = 'lnr > 0', order = 'lnr')
     if jghstatliste:
         letzte = jghstatliste[-1]['lnr']
     else:
         letzte = 0
-    jghstatliste = JugendhilfestatistikList(where = 'lnr IS NULL ', order = 'id')
+    # laufende Nummer setzen wo noch keine vorhanden ist
+    jghstatliste = JugendhilfestatistikList(where = 'lnr IS NULL', order = 'id')
     for j in jghstatliste:
         letzte += 1
         j.update({'lnr': letzte})

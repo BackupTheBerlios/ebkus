@@ -35,56 +35,6 @@ class formabfrjghexport(Request.Request):
         return ''.join(res)
         
         
-## class jghexportfeedback(Request.Request):
-##     """Aufruf zum Export der Jugendhilfestatistik und Feedback."""
-    
-##     permissions = Request.ADMIN_PERM
-    
-##     def processForm(self, REQUEST, RESPONSE):
-##         import os
-        
-##         mitarbeiterliste = self.getMitarbeiterliste()
-##         user = self.user
-        
-##         if self.form.has_key('jahr'):
-##             jahr = self.form.get('jahr')
-##         else:
-##             self.last_error_message = "Kein Jahr erhalten"
-##             return self.EBKuSError(REQUEST, RESPONSE)
-            
-##         jghlist = JugendhilfestatistikList(where = 'ey = %s' % jahr)
-##         if len(jghlist) < 1:
-##             self.last_error_message = 'Keine Bundesstatistik f&uuml;r %s vorhanden' % jahr
-##             return self.EBKuSError(REQUEST, RESPONSE)
-##         try:
-##             log_filename = os.path.join(config.INSTANCE_HOME, EXPORT_DIR, 'jgh_log_%s.txt' % jahr)
-##             log_filename_web = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, 'jgh_log_%s.txt' % jahr)
-##             # TBD: jghexport importieren statt als script!
-##             os.system('python %s/ebkus/app/jghexport.py %s ' % (config.INSTANCE_HOME, jahr) + '>%s' % log_filename)
-            
-##             # msg 2002-03-04 Anpassung fuer Anzeige per webinterface
-##             # es existieren nun die dateien in doppelter ausführung
-##             # einmal zum erhalt in dem verzeichnis /ebkus/daten/export
-##             # und zum andren im webserver verzeichnis zur anzeige im webbrowser
-            
-##             # Die Pfade muessen noch variabel gemacht werden. Juerg, 9.1.03
-##             f = open(log_filename, 'r')
-##             f_web = open(log_filename_web, 'w+')
-##             f_web.write(f.read())
-            
-##         except Exception, e:
-##             raise EE("Fehler beim Exportieren: %s" % str(e) ) 
-            
-##         site = Code(cc('dbsite', '%s' % getDBSite()))
-        
-##         res = []
-##         res.append(head_normal_ohne_help_t %("Exportdatei der %s" % site['name'] + " f&uuml;r das Jahr %s " % jahr))
-
-##         ausgabe = { 'ebkushome' : '/ebkus/%s/' % config.INSTANCE_NAME,
-##                     'exportdir' : EXPORT_DIR_URL, 'jahr' : jahr }
-##         res.append(jghexportfeedback_t % ausgabe)
-##         return string.join(res, '')
-        
 class jghexportfeedback(Request.Request):
     """Aufruf zum Export der Jugendhilfestatistik und Feedback."""
     
@@ -137,8 +87,12 @@ class jghexportfeedback(Request.Request):
         
         
 class jghexportlist(Request.Request):
-    """Listet die exportierten Jugendhilfestatistiken."""
-    
+    """Listet die exportierten Jugendhilfestatistiken.
+
+    Falls ein Parameter file vorhanden ist, wird die entsprechende
+    Jugendhilfestatistikdatei direkt zurückgegeben, so dass der Anwender
+    sie bei sich abspeichern kann.
+    """
     permissions = Request.ADMIN_PERM
     
     def processForm(self, REQUEST, RESPONSE):
@@ -171,32 +125,6 @@ class jghexportlist(Request.Request):
         res.append(jghexportliste_ende_t)
         return ''.join(res)
         
-        
-class jghexportget(Request.Request):
-    """Aufruf zum Export der Jugendhilfestatistik und Feedback."""
-    
-    permissions = Request.ADMIN_PERM
-    
-    def processForm(self, REQUEST, RESPONSE):
-        import os
-
-        if self.form.has_key('file'):
-            file = self.form.get('file')
-        else:
-            self.last_error_message = "Kein Dateiname"
-            return self.EBKuSError(REQUEST, RESPONSE)
-            
-        try:
-            filename = os.path.join(config.DOCUMENT_ROOT, EXPORT_DIR, file)
-            f = open(filename)
-            content = f.read()
-            f.close()
-            self.RESPONSE.setHeader('content-type', 'text/plain')
-            self.RESPONSE.setBody(content)
-        except Exception, e:
-            raise EE("Fehler beim Download: %s" % str(e) ) 
-        
-
 class formabfrdbexport(Request.Request):
     """Auswahlformular für den Ex- bzw. Import von Daten."""
     
