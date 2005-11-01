@@ -19,6 +19,7 @@ class login(Request.Request):
         if self.session:
             self.session.expire(self.RESPONSE)
 
+
     def processForm(self, REQUEST, RESPONSE):
         res = []
         username = self.form.get('username')
@@ -56,14 +57,11 @@ class login(Request.Request):
             res.append(meldung_t % meldung)
             return ''.join(res)
 
-        if has_session(username):
-            meldung = {
-                'titel':'Benutzername bereits angemeldet!','legende':'Benutzername bereits angemeldet!',
-                'zeile1':"Der Benutzername '%s' ist bereits angemeldet," % username,
-                'zeile2':'möglicherweise von einem anderen Computer aus.'
-                }
-            return meldung_t % meldung
-            
+        other_session = has_session(username)
+        if other_session:
+            # Es gibt noch eine Session desselben Benutzers, die
+            # nicht mit einem logout oder durch Timeout beendet wurde.
+            other_session.delete()
         if mitarbeiter['pass'] == sha.new(username).hexdigest():
             # Passwort ist identisch mit dem Benutzernamen
             weiterleitung = 'pwchange'
