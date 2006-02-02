@@ -58,7 +58,8 @@ class _session(object):
         self.data = {}
         self._session_dict[self.session_id] = self
         self._user_dict[user] = self
-        RESPONSE.setCookie("session_id", self.session_id)
+        # cookie haelt nur einen guten Tag (mehr als 86400 Sek.)
+        RESPONSE.setCookie("session_id", self.session_id, max_age=100000)
         
     def _create_session_id(self):
         s = sha.new("%s %s" % (self.user, self.time))
