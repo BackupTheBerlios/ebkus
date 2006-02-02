@@ -146,7 +146,9 @@ class _Config(object):
                 else:
                     ports[c.getint(s, 'port')] = 1
                 for o in ('instance_name', 'database_name',
-                          'database_user', 'database_password'):
+                          #'database_user', 'database_password'):
+                          # database_password kann auch grosse Buchstaben enthalten
+                          'database_user'):
                     if c.has_option(s, o):
                         val = c.get(s, o)
                         if not self._is_ident(val):
