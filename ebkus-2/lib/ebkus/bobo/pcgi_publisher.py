@@ -144,9 +144,14 @@ def main(module_name):
     import ebkus.app.EBKuS
     publish = ebkus.bobo.cgi_module_publisher.publish_module
     # Create a listening socket
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind((config.HOST, int(config.PORT)))
-    sock.listen(5)
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.bind((config.HOST, int(config.PORT)))
+        sock.listen(5)
+    except socket.error, e:
+        t = sys.exc_info()[0]
+        logging.exception("Socketfehler: %s %s", t, e)
+        exit(1)
     #logging.info("Publishing module: %s", module_name)
     host, port = sock.getsockname()
     logging.info('Warte auf Anfragen: EBKuS - %s  (host: %s port: %s)',
